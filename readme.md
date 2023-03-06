@@ -3,7 +3,6 @@
 <img alt="Language" src="https://img.shields.io/github/languages/top/brucewlee/lftk?style=plastic"></a>
 
 # LFTK - Linguistic Features ToolKit
-## Overview
 LFTK is a Python research package that extracts various handcrafted linguistic features (e.g. number of words per sentence, Flesch-Kincaid Readabiility Score) from a given text. LFTK is built with multilingual usage and expandability in mind. LFTK is also built on top of a popular NLP library named [spaCy](https://spacy.io), allowing users to freely explore whichever spaCy's pre-trained pipelines.
 
 You can use LFTK to calculate readability score, evaluate word difficulty, count number of nouns, and many more.
