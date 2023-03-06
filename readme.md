@@ -42,14 +42,15 @@ doc = nlp("I love research but my professor is strange.")
 LFTK_Extractor = lftk.Extractor(docs = doc)
 
 # optionally, you can customize how LFTK extractor should calculate linguistic features
-# for example, count stop_words? how many decimals to round up?
-LFTK_Extractor.customize(stop_words=False, punctuations=False, round_decimal=3)
+# for example, count stop_words (common words)? how many decimals to round up?
+LFTK_Extractor.customize(stop_words=True, punctuations=False, round_decimal=3)
 
 # now, extract linguistic features that you need
-# here, we test with average number of words per sentence, average word difficulty (based on Kuperman's Age-of-Acquisition research), and the total occurence of noun
+# here, we test with the average number of words per sentence, average word difficulty (based 
+# on Kuperman's Age-of-Acquisition research), and the total occurence of nouns
 extracted_features = LFTK_Extractor.extract(features = ["a_word_ps", "a_kup_pw", "n_noun"])
 
-# {'a_word_ps': 4.0, 'a_kup_pw': 11.508, 'n_noun': 2}
+# {'a_word_ps': 8.0, 'a_kup_pw': 5.754, 'n_noun': 2}
 print(extracted_features)
 ```
 
