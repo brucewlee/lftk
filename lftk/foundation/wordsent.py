@@ -6,7 +6,6 @@ class WordSent:
             return SE.total_number_of_words_ 
         except AttributeError:   
             token_list = [token for token in SE.doc]
-            print(token_list)
             if not SE.options['stop_words']:
                 token_list = [token for token in token_list if token.is_stop != True]
             if not SE.options['punctuations']:
