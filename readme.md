@@ -38,10 +38,10 @@ nlp = spacy.load("en_core_web_sm")
 doc = nlp("I love research but my professor is strange.")
 
 # initiate LFTK extractor by passing in doc
-# you can pass in a list of multiple docs, too
+# you can pass in a list of multiple docs
 LFTK_Extractor = lftk.Extractor(docs = doc)
 
-# optionally, you can customize how LFTK extractor should calculate linguistic features
+# optionally, you can customize how LFTK extractor calculates linguistic features
 # for example, count stop_words (common words)? how many decimals to round up?
 LFTK_Extractor.customize(stop_words=True, punctuations=False, round_decimal=3)
 
@@ -51,6 +51,13 @@ LFTK_Extractor.customize(stop_words=True, punctuations=False, round_decimal=3)
 extracted_features = LFTK_Extractor.extract(features = ["a_word_ps", "a_kup_pw", "n_noun"])
 
 # {'a_word_ps': 8.0, 'a_kup_pw': 5.754, 'n_noun': 2}
+print(extracted_features)
+
+# how you customize LFTK extractor can bring varying results
+LFTK_Extractor.customize(stop_words=False, punctuations=False, round_decimal=3)
+extracted_features = LFTK_Extractor.extract(features = ["a_word_ps", "a_kup_pw", "n_noun"])
+
+# {'a_word_ps': 4.0, 'a_kup_pw': 11.508, 'n_noun': 2}
 print(extracted_features)
 ```
 
