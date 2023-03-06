@@ -1,4 +1,3 @@
-[![CC BY-SA 4.0][cc-by-sa-shield]][cc-by-sa]
 [![spaCy](https://img.shields.io/badge/made%20with%20❤%20and-spaCy-09a3d5.svg)](https://spacy.io)
 <img alt="PyPI Downloads" src="https://img.shields.io/pypi/dm/lftk?color=white&label=PyPI%20Downloads&style=plastic"></a>
 <img alt="Language" src="https://img.shields.io/github/languages/top/brucewlee/lftk?style=plastic"></a>
@@ -53,5 +52,5 @@ extracted_features = LFTK_Extractor.extract(features = ["a_word_ps", "a_kup_pw",
 print(extracted_features)
 ```
 
-## An In-Depth Documentation of All Extractable Linguistic Features
+## Deep Dive: Linguistic Features
 to be updated
