@@ -1,11 +1,13 @@
 [![spaCy](https://img.shields.io/badge/made%20with%20❤%20and-spaCy-09a3d5.svg)](https://spacy.io)
 <img alt="PyPI Downloads" src="https://img.shields.io/pypi/dm/lftk?color=white&label=PyPI%20Downloads&style=plastic"></a>
 <img alt="Language" src="https://img.shields.io/github/languages/top/brucewlee/lftk?style=plastic"></a>
+<img alt="Available Features" src="https://img.shields.io/badge/Linguistic%20Feature%20Count-83-yellowgreen"></a>
+<img alt="Latest Version" src="https://img.shields.io/badge/Latest%20Version-1.0.1-red"></a>
 
 # LFTK - Linguistic Features ToolKit
 - **What is LFTK?**: LFTK is a Python research package that extracts various handcrafted linguistic features (e.g. number of words per sentence, Flesch-Kincaid Readabiility Score) from a given text. 
 - **What is good?**: LFTK is built with multilingual usage and expandability in mind. LFTK is rooted in its predecessor, [LingFeat](https://github.com/brucewlee/lingfeat).
-- **Expands spaCy**: LFTK is also built on top of a popular NLP library named [spaCy](https://spacy.io), allowing users to freely explore whichever spaCy's pre-trained pipelines.
+- **Expands spaCy**: LFTK is also built on top of a popular NLP library named [spaCy](https://spacy.io), allowing users to freely explore spaCy's pre-trained pipelines.
 
 You can use LFTK to calculate readability score, evaluate word difficulty, count number of nouns, and many more. There is much to explore in this package.
 
@@ -59,7 +61,65 @@ extracted_features = LFTK_Extractor.extract(features = ["a_word_ps", "a_kup_pw",
 
 # {'a_word_ps': 4.0, 'a_kup_pw': 11.508, 'n_noun': 2}
 print(extracted_features)
+
+# extract function will extract all available features by default
+extracted_features = LFTK_Extractor.extract()
+
+# {'t_word': 4, ..., 'a_space_ps': 1.0}
+print(extracted_features)
 ```
 
 ## Deep Dive: Linguistic Features
+
+All linguistic features available in LFTK are categorized into domain, then family. Domain (e.g. lexico-semantic, discourse) refers to the linguistic branch that the feature belongs to. Family is a smaller group of linguistic features that share common properties in terms of calculation steps and function. 
+
+Each linguistic feature can either foundation or derivation. Derivation-type linguistic features are derived on top of foundation-type linguistic features. For example, the *total number of words* and the *total number of sentences* in a given text is a foundation feature. On the other hand, the *average number of words per sentence* is a derivation feature as it builds on top of the two aforementioned foundation features.
+
+### Programmatically Searching Linguistic Features
+
+```python
+import lftk
+
+# returns all available features as a list of dictionaries by default
+searched_features = lftk.search_features()
+
+# [{'key': 't_word', 'name': 'total_number_of_words', 'formulation': 'foundation', 'domain': 'surface', 'family': 'wordsent'}, {'key': 't_uword', 'name': 'total_number_of_unique_words', 'formulation': 'foundation', 'domain': 'surface', 'family': 'wordsent'}, {'key': 't_sent', 'name': 'total_number_of_sentences', 'formulation': 'foundation', 'domain': 'surface', 'family': 'wordsent'},...]
+print(searched_features)
+
+# specify domain or family
+searched_features = lftk.search_features(domain = "surface", family = "avgwordsent")
+
+# [{'key': 'a_word_ps', 'name': 'average_number_of_words_per_sentence', 'formulation': 'derivation', 'domain': 'surface', 'family': 'avgwordsent'}, {'key': 'a_char_ps', 'name': 'average_number_of_characters_per_sentence', 'formulation': 'derivation', 'domain': 'surface', 'family': 'avgwordsent'}, {'key': 'a_char_pw', 'name': 'average_number_of_characters_per_word', 'formulation': 'derivation', 'domain': 'surface', 'family': 'avgwordsent'}]
+print(searched_features)
+
+# return pandas dataframe instead of list of dictionaries
+searched_features = lftk.search_features(domain = 'surface', family = "avgwordsent", pandas=True)
+
+#   key                                             name formulation   domain       family
+#4  a_word_ps       average_number_of_words_per_sentence  derivation  surface  avgwordsent
+#5  a_char_ps  average_number_of_characters_per_sentence  derivation  surface  avgwordsent
+#6  a_char_pw      average_number_of_characters_per_word  derivation  surface  avgwordsent
+print(searched_features)
+```
+
+### Google Sheet of All Lingusitic Features
 to be updated
+
+### Domains
+- **surface** : surface-level features that often do not represent a specific linguistic property
+- **lexico-semantic** : attributes associated with words
+- **discourse** : high-level dependencies between words and sentences
+- **syntactic** : arrangement of words and phrases
+
+### Families - Foundation
+- **wordsent** : basic counts of words and sentences
+- **worddiff** : difficulty, familiarity, frequency of words
+- **partofspeech** : features that deals with part of speech properties
+- **entity** : named entities or entities such as location or person
+
+### Families - Derivation
+- **avgwordsent** : averaging **wordsent** features over certain spans
+- **avgworddiff** : averaging **worddiff** features over certain spans
+- **avgpartofspeech**  : averaging **partofspeech** features over certain spans
+- **avgentity** : averaging **entity** features over certain spans
+- **typetokenratio**  : type token ratio is known to capture lexical richness of a text

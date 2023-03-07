@@ -1,1 +1,1 @@
-from lftk.lftk import Extractor
+from lftk.lftk import Extractor, search_features

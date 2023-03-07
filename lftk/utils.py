@@ -15,12 +15,16 @@ def convert_ndjson_to_pd(path: str):
     return data
 
 def get_pandas_row(
-    database: pd.core.frame.DataFrame, 
+    dataframe: pd.core.frame.DataFrame, 
     column: str, 
-    to_search: str
-    ) -> List[dict]:
-    mask = database[column] == to_search
-    rows = database[mask].to_dict('records')
+    to_search: str,
+    return_pandas: bool = False
+    ) -> Union[List[dict], pd.core.frame.DataFrame]:
+    mask = dataframe[column] == to_search
+    if return_pandas == False:
+        rows = dataframe[mask].to_dict('records')
+    else:
+        rows = dataframe[mask]
     return rows
 
 def safe_division(n, d):
