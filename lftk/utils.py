@@ -29,3 +29,7 @@ def get_pandas_row(
 
 def safe_division(n, d):
     return n / d if d else 0
+
+if __name__ == "__main__":
+    df = convert_ndjson_to_pd('resources/feature_map.json')
+    df.to_csv('feature_map.csv', index = False)

@@ -1,8 +1,8 @@
 [![spaCy](https://img.shields.io/badge/made%20with%20❤%20and-spaCy-09a3d5.svg)](https://spacy.io)
 <img alt="PyPI Downloads" src="https://img.shields.io/pypi/dm/lftk?color=white&label=PyPI%20Downloads&style=plastic"></a>
 <img alt="Language" src="https://img.shields.io/github/languages/top/brucewlee/lftk?style=plastic"></a>
-<img alt="Available Features" src="https://img.shields.io/badge/Linguistic%20Feature%20Count-83-yellowgreen"></a>
-<img alt="Latest Version" src="https://img.shields.io/badge/Latest%20Version-1.0.1-red"></a>
+<img alt="Available Features" src="https://img.shields.io/badge/Linguistic%20Feature%20Count-94-yellowgreen"></a>
+<img alt="Latest Version" src="https://img.shields.io/badge/Latest%20Version-1.0.2-red"></a>
 
 # LFTK - Linguistic Features ToolKit
 - **What is LFTK?**: LFTK is a Python research package that extracts various handcrafted linguistic features (e.g. number of words per sentence, Flesch-Kincaid Readabiility Score) from a given text. 
@@ -75,6 +75,8 @@ All linguistic features available in LFTK are categorized into domain, then fami
 
 Each linguistic feature can either foundation or derivation. Derivation-type linguistic features are derived on top of foundation-type linguistic features. For example, the *total number of words* and the *total number of sentences* in a given text is a foundation feature. On the other hand, the *average number of words per sentence* is a derivation feature as it builds on top of the two aforementioned foundation features.
 
+Each linguistic feature also has an assigned language value. If the linguistic feature is universally applicable across languages, it is denoted "general". These general linguistic features can be used with any language given that spaCy has a supporting pipeline for that functionality in that language. This can be easily checked on [spaCy pipelines](https://universaldependencies.org/u/pos/). If the feature is designed for a specific language, like English, it is denoted with the specific language code.
+
 ### Programmatically Searching Linguistic Features
 
 ```python
@@ -103,7 +105,7 @@ print(searched_features)
 ```
 
 ### Google Sheet of All Lingusitic Features
-to be updated
+[Link to Sheet](https://docs.google.com/spreadsheets/d/1uXtQ1ah0OL9cmHp2Hey0QcHb4bifJcQFLvYlVIAWWwQ/edit?usp=sharing)
 
 ### Domains
 - **surface** : surface-level features that often do not represent a specific linguistic property
@@ -114,7 +116,7 @@ to be updated
 ### Families - Foundation
 - **wordsent** : basic counts of words and sentences
 - **worddiff** : difficulty, familiarity, frequency of words
-- **partofspeech** : features that deals with part of speech properties
+- **partofspeech** : features that deals with part of speech properties, we follow the [universal POS](https://universaldependencies.org/u/pos/) tagging scheme
 - **entity** : named entities or entities such as location or person
 
 ### Families - Derivation
@@ -123,3 +125,4 @@ to be updated
 - **avgpartofspeech**  : averaging **partofspeech** features over certain spans
 - **avgentity** : averaging **entity** features over certain spans
 - **typetokenratio**  : type token ratio is known to capture lexical richness of a text
+- **readformula** : traditional readability formulas that calculate text readability

@@ -25,54 +25,44 @@ SUBTLEX_US_PATH = os.path.join(CURRENT_PATH, 'resources/subtlex_us.csv')
 
 
 class Extractor:
-    """
-    Starter class for users
-    input :
-    - self
-    - docs: single or multiple spacy doc object
-    saves :
-    - self.doc: spacy doc object
-    - self.feature_map: dictionary of dictionary that contains "key" as the parent key and the others ("name", "type") as children keys
-    """
     def __init__(
         self, 
         docs: Union[spacy.tokens.doc.Doc, List[spacy.tokens.doc.Doc]]
         ) -> None:
+        """
+        Starter class for users
+        input :
+        - self
+        - docs: single or multiple spacy doc object
+        saves :
+        - self.doc: spacy doc object
+        - self.feature_map: dictionary of dictionary that contains "key" as the parent key and the others ("name", "type") as children keys
+        """
         # Type adjustment
         if type(docs) is not list: docs = [docs]
         self.docs = docs
         self.feature_map = get_feature_map(path = FEATURE_MAP_PATH)
 
-
-    """
-    Save options
-    input :
-    - self
-    - options
-    saves :
-    - self.options
-    """
     def customize(
         self,
         stop_words: bool = True,
         punctuations: bool = True,
         round_decimal: int = 3,
         ) -> None:
+        """
+        Save options
+        input :
+        - self
+        - options
+        saves :
+        - self.options
+        """
         self.options = {
             'stop_words': stop_words,
             'punctuations': punctuations,
             'round_decimal': 3
         }
 
-
-    """
-    Calculate linguistic feature(s) from all given spaCy docs
-    input :
-    - self
-    - features: features to be extracted
-    returns :
-    - result: extracted linguistic feature(s)
-    """
     def extract(
         self, 
         features: Union[str, list] = "*"
@@ -80,6 +70,14 @@ class Extractor:
             Dict[str, Union[float,int]], 
             List[Dict[str, Union[float,int]]]
             ]:
+        """
+        Calculate linguistic feature(s) from all given spaCy docs
+        input :
+        - self
+        - features: features to be extracted
+        returns :
+        - result: extracted linguistic feature(s)
+        """
         # Type adjustment
         if type(features) is not list: features = [features]
         # Iterate user input
@@ -95,20 +93,20 @@ class Extractor:
 
 
 class SingleExtractor:
-    """
-    Initialize pipeline
-    input :
-    - self
-    - doc: single text inside spacy doc object
-    saves :
-    - self.doc: spacy doc object
-    """
     def __init__(
         self, 
         doc: spacy.tokens.doc.Doc,
         feature_map: Dict[str, Dict[str, str]],
         options: Dict[str, Union[str, bool]]
         ) -> None:
+        """
+        Initialize pipeline
+        input :
+        - self
+        - doc: single text inside spacy doc object
+        saves :
+        - self.doc: spacy doc object
+        """
         self.doc = doc
         self.feature_map = feature_map
         self.options = options
@@ -119,19 +117,18 @@ class SingleExtractor:
             'SUBTLEX_US_PATH' : SUBTLEX_US_PATH,
         }
 
-
-    """
-    Calculate linguistic feature(s) from spaCy doc
-    input :
-    - self
-    - features: features to be extracted
-    returns :
-    - result: extracted linguistic feature(s)
-    """
     def run(
         self, 
         features: list,
         ) -> Dict[str, Union[float,int]]:
+        """
+        Calculate linguistic feature(s) from spaCy doc
+        input :
+        - self
+        - features: features to be extracted
+        returns :
+        - result: extracted linguistic feature(s)
+        """
         # Iterate through given features
         result = {}
         if features != ["*"]:
@@ -153,19 +150,19 @@ class SingleExtractor:
                 result[f'{feature_key}'] = round(feature_fn(self), self.options['round_decimal'])
         return result
 
-"""
-Return available linguistic features
-input :
-- domain: specify which domain
-- family: specify which family
-returns :
-- result: searched linguistic feature(s)
-"""
 def search_features(
     domain: str = "*",
     family: str = "*",
     pandas: bool = False
     ) -> Union[List[dict], pd.core.frame.DataFrame]:
+    """
+    Return available linguistic features
+    input :
+    - domain: specify which domain
+    - family: specify which family
+    returns :
+    - result: searched linguistic feature(s)
+    """
     feature_df = convert_ndjson_to_pd(path = FEATURE_MAP_PATH)
     if domain != "*":
         feature_df = get_pandas_row(feature_df, "domain", domain, True)
