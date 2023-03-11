@@ -5,7 +5,7 @@
 <img alt="Latest Version" src="https://img.shields.io/badge/Latest%20Version-1.0.2-red"></a>
 <img src="assets/logo-color.png" width="250" align="right">
 
-# LFTK - Linguistic Feature ToolKit
+# LFTK
 - **What is LFTK?**: LFTK is a Python research package that extracts various handcrafted linguistic features (e.g. number of words per sentence, Flesch-Kincaid Readabiility Score) from a given text. 
 - **What is good?**: LFTK is built with multilingual usage and expandability in mind. LFTK is rooted in its predecessor, [LingFeat](https://github.com/brucewlee/lingfeat).
 - **Expands spaCy**: LFTK is also built on top of a popular NLP library named [spaCy](https://spacy.io), allowing users to freely explore spaCy's pre-trained pipelines.
