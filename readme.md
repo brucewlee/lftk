@@ -110,9 +110,9 @@ print(searched_features)
 
 ### Domains
 - **surface** : surface-level features that often do not represent a specific linguistic property
-- **lexico-semantic** : attributes associated with words
+- **lexico-semantics** : attributes associated with words
 - **discourse** : high-level dependencies between words and sentences
-- **syntactic** : arrangement of words and phrases
+- **syntax** : arrangement of words and phrases
 
 ### Families - Foundation
 - **wordsent** : basic counts of words and sentences
