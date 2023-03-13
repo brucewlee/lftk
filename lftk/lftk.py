@@ -42,6 +42,7 @@ class Extractor:
         if type(docs) is not list: docs = [docs]
         self.docs = docs
         self.feature_map = get_feature_map(path = FEATURE_MAP_PATH)
+        self.customize()
 
     def customize(
         self,

@@ -1,4 +1,6 @@
 {"key":"t_word","name":"total_number_of_words","formulation":"foundation","domain":"surface", "family":"wordsent", "language":"general"}
+{"key":"t_stopword","name":"total_number_of_stop_words","formulation":"foundation","domain":"surface", "family":"wordsent", "language":"general"}
+{"key":"t_punct","name":"total_number_of_puntuations","formulation":"foundation","domain":"syntax", "family":"wordsent", "language":"general"}
 {"key":"t_syll","name":"total_number_of_syllables","formulation":"foundation","domain":"surface", "family":"wordsent", "language":"en"}
 {"key":"t_syll2","name":"total_number_of_words_more_than_two_syllables","formulation":"foundation","domain":"surface", "family":"wordsent", "language":"en"}
 {"key":"t_syll3","name":"total_number_of_words_more_than_three_syllables","formulation":"foundation","domain":"surface", "family":"wordsent", "language":"en"}
@@ -10,6 +12,8 @@
 {"key":"a_char_pw","name":"average_number_of_characters_per_word","formulation":"derivation","domain":"surface", "family":"avgwordsent", "language":"general"}
 {"key":"a_syll_ps","name":"average_number_of_syllables_per_sentence","formulation":"derivation","domain":"surface", "family":"avgwordsent", "language":"en"}
 {"key":"a_syll_pw","name":"average_number_of_syllables_per_word","formulation":"derivation","domain":"surface", "family":"avgwordsent", "language":"en"}
+{"key":"a_stopword_ps","name":"average_number_of_stop_words_per_sentence","formulation":"derivation","domain":"surface", "family":"avgwordsent", "language":"en"}
+{"key":"a_stopword_pw","name":"average_number_of_stop_words_per_word","formulation":"derivation","domain":"surface", "family":"avgwordsent", "language":"en"}
 {"key":"t_kup","name":"total_kuperman_age_of_acquistion_of_words","formulation":"foundation","domain":"lexico-semantics", "family":"worddiff", "language":"en"}
 {"key":"t_bry","name":"total_brysbaert_age_of_acquistion_of_words","formulation":"foundation","domain":"lexico-semantics", "family":"worddiff", "language":"en"}
 {"key":"t_subtlex_us_zipf","name":"total_subtlex_us_zipf_of_words","formulation":"foundation","domain":"lexico-semantics", "family":"worddiff", "language":"en"}

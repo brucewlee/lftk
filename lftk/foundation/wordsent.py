@@ -14,6 +14,28 @@ class WordSent:
             SE.total_number_of_words_ = len(token_list)
             return SE.total_number_of_words_
     
+    def total_number_of_stop_words(
+        SE: object,
+        ) -> int:
+        try:
+            return SE.total_number_of_stop_words_ 
+        except AttributeError:   
+            token_list = [token for token in SE.doc if token.is_stop == True]
+            # Calculate and save result
+            SE.total_number_of_stop_words_  = len(token_list)
+            return SE.total_number_of_stop_words_ 
+    
+    def total_number_of_puntuations(
+        SE: object,
+        ) -> int:
+        try:
+            return SE.total_number_of_puntuations_ 
+        except AttributeError:   
+            token_list = [token for token in SE.doc if token.is_punct == True]
+            # Calculate and save result
+            SE.total_number_of_puntuations_  = len(token_list)
+            return SE.total_number_of_puntuations_ 
+    
     def total_number_of_syllables(
         SE: object,
         ) -> int:
