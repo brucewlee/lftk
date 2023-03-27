@@ -30,13 +30,13 @@ class Extractor:
         docs: Union[spacy.tokens.doc.Doc, List[spacy.tokens.doc.Doc]]
         ) -> None:
         """
-        Starter class for users
-        input :
-        - self
-        - docs: single or multiple spacy doc object
-        saves :
-        - self.doc: spacy doc object
-        - self.feature_map: dictionary of dictionary that contains "key" as the parent key and the others ("name", "type") as children keys
+            Starter class for users
+            input :
+            - self
+            - docs: single or multiple spacy doc object
+            saves :
+            - self.doc: spacy doc object
+            - self.feature_map: dictionary of dictionary that contains "key" as the parent key and the others ("name", "type") as children keys
         """
         # Type adjustment
         if type(docs) is not list: docs = [docs]
@@ -51,17 +51,19 @@ class Extractor:
         round_decimal: int = 3,
         ) -> None:
         """
-        Save options
-        input :
-        - self
-        - options
-        saves :
-        - self.options
+            Save options
+            input :
+            - self
+            - stop_words: set to False to remove stop words in all feature calculations
+            - punctuations: set to False to remove punctuations in all feature calculations
+            - round_decimal: maximum number of returned decimal points
+            saves :
+            - self.options
         """
         self.options = {
             'stop_words': stop_words,
             'punctuations': punctuations,
-            'round_decimal': 3
+            'round_decimal': round_decimal
         }
 
     def extract(
@@ -72,12 +74,12 @@ class Extractor:
             List[Dict[str, Union[float,int]]]
             ]:
         """
-        Calculate linguistic feature(s) from all given spaCy docs
-        input :
-        - self
-        - features: features to be extracted
-        returns :
-        - result: extracted linguistic feature(s)
+            Calculate linguistic feature(s) from all given spaCy docs
+            input :
+            - self
+            - features: features to be extracted
+            returns :
+            - result: extracted linguistic feature(s)
         """
         # Type adjustment
         if type(features) is not list: features = [features]
@@ -101,12 +103,12 @@ class SingleExtractor:
         options: Dict[str, Union[str, bool]]
         ) -> None:
         """
-        Initialize pipeline
-        input :
-        - self
-        - doc: single text inside spacy doc object
-        saves :
-        - self.doc: spacy doc object
+            Initialize pipeline
+            input :
+            - self
+            - doc: single text inside spacy doc object
+            saves :
+            - self.doc: spacy doc object
         """
         self.doc = doc
         self.feature_map = feature_map
@@ -123,12 +125,12 @@ class SingleExtractor:
         features: list,
         ) -> Dict[str, Union[float,int]]:
         """
-        Calculate linguistic feature(s) from spaCy doc
-        input :
-        - self
-        - features: features to be extracted
-        returns :
-        - result: extracted linguistic feature(s)
+            Calculate linguistic feature(s) from spaCy doc
+            input :
+            - self
+            - features: features to be extracted
+            returns :
+            - result: extracted linguistic feature(s)
         """
         # Iterate through given features
         result = {}
@@ -154,23 +156,34 @@ class SingleExtractor:
 def search_features(
     domain: str = "*",
     family: str = "*",
-    pandas: bool = False
+    language: str ="*",
+    return_format: str = "list_dict"
     ) -> Union[List[dict], pd.core.frame.DataFrame]:
     """
-    Return available linguistic features
-    input :
-    - domain: specify which domain
-    - family: specify which family
-    returns :
-    - result: searched linguistic feature(s)
+        Return available linguistic features that match user-specified attributes
+        input :
+        - domain: specify which domain
+        - family: specify which family 
+        - return_format: how to return searched features
+        returns :
+        - result: searched linguistic feature(s)
     """
     feature_df = convert_ndjson_to_pd(path = FEATURE_MAP_PATH)
     if domain != "*":
         feature_df = get_pandas_row(feature_df, "domain", domain, True)
     if family != "*":
         feature_df = get_pandas_row(feature_df, "family", family, True)
-    if pandas == False:
+    if language != "*":
+        feature_df = get_pandas_row(feature_df, "language", language, True)
+
+    if return_format == "list_dict":
         result = feature_df.to_dict('records')
-    else:
+    elif return_format == "pandas":
         result = feature_df
+    elif return_format == "list_key":
+        list_dict = feature_df.to_dict('records')
+        result = [dict_['key'] for dict_ in list_dict]
+    else:
+        raise ValueError('return_format must be "list_dict", "pandas", or "list_key"')
+
     return result
