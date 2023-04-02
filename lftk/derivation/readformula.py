@@ -1,6 +1,5 @@
 import math
 
-import spacy
 from lftk.derivation.foundation_collector import FoundationCollector
 from lftk.utils import safe_division
 
