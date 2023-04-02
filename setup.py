@@ -4,18 +4,18 @@ from setuptools import find_packages
 # python -m twine upload dist/*
 setup(
     name = 'lftk',  
-    version='1.0.4',
+    version='1.0.5',
     license='CC BY-NC 4.0',   
-    description = 'Comprehensive Multilingual Linguistic Features Extraction in Python',
+    description = 'Comprehensive Handcrafted Linguistic Features Extraction in Python',
     author = 'Bruce W. Lee',
     author_email = 'brucelws@seas.upenn.edu', 
     packages=find_packages(),
     url='https://github.com/brucewlee/lftk',
-    keywords='linguistic feature',
+    keywords='handcrafted linguistic feature',
     install_requires=[
           'pandas',
           'ndjson',
-          'spacy'
+          'spacy',
       ],
     include_package_data=True,
     package_data={'': ['resources/*']}

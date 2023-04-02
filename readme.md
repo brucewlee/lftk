@@ -1,13 +1,13 @@
 [![spaCy](https://img.shields.io/badge/made%20with%20❤%20and-spaCy-09a3d5.svg)](https://spacy.io)
 <img alt="PyPI Downloads" src="https://img.shields.io/pypi/dm/lftk?color=white&label=PyPI%20Downloads&style=plastic"></a>
 <img alt="Language" src="https://img.shields.io/github/languages/top/brucewlee/lftk?style=plastic"></a>
-<img alt="Available Features" src="https://img.shields.io/badge/Linguistic%20Feature%20Count-98-yellowgreen"></a>
-<img alt="Latest Version" src="https://img.shields.io/badge/Latest%20Version-1.0.3-red"></a>
+<img alt="Available Features" src="https://img.shields.io/badge/Linguistic%20Feature%20Count-155-yellowgreen"></a>
+<img alt="Latest Version" src="https://img.shields.io/badge/Latest%20Version-1.0.5-red"></a>
 <img src="assets/logo-color.png" width="250" align="right">
 
 # LFTK
 - **What is LFTK?**: LFTK is a Python research package that extracts various handcrafted linguistic features (e.g. number of words per sentence, Flesch-Kincaid Readabiility Score) from a given text. 
-- **What is good?**: LFTK is built with multilingual usage and expandability in mind. LFTK is rooted in its predecessor, [LingFeat](https://github.com/brucewlee/lingfeat).
+- **What is good?**: LFTK is built with expandability in mind. LFTK is rooted in its predecessor, [LingFeat](https://github.com/brucewlee/lingfeat).
 - **Expands spaCy**: LFTK is also built on top of a popular NLP library named [spaCy](https://spacy.io), allowing users to freely explore spaCy's pre-trained pipelines.
 
 You can use LFTK to calculate readability score, evaluate word difficulty, count number of nouns, and many more. There is much to explore in this package.
@@ -62,7 +62,7 @@ print(extracted_features)
 
 TL;DR: [Google Sheet of All Handcrafated Lingusitic Features](https://docs.google.com/spreadsheets/d/1uXtQ1ah0OL9cmHp2Hey0QcHb4bifJcQFLvYlVIAWWwQ/edit?usp=sharing)
 
-Each handcrafted linguistic feature represents a certain linguistic property. We categorize all features into the broad linguistic branches of **lexico-semantics**, **syntax**, **discourse**, and **surface**. The **surface** branch can also hold features that do not belong to any specific linguistic branch. Apart from linguistic branches, handcrafted features are also categorized into linguistic families. The linguistic families are meant to group features into smaller subcategories, enabling users to search more effectively for the feature they need. All family names are unique, and each family belongs to a specific formulation. This means that the features in a family are either all foundation or all derivation. A linguistic family also serves as an important building block of our feature extraction system. LFTK as a program is essentially a linked collection of several feature extraction modules where each module represents a linguistic family. Such an organization is also depicted in Figure 3.
+Each handcrafted linguistic feature represents a certain linguistic property. We categorize all features into the broad linguistic branches of **lexico-semantics**, **syntax**, **discourse**, and **surface**. The **surface** branch can also hold features that do not belong to any specific linguistic branch. Apart from linguistic branches, handcrafted features are also categorized into linguistic families. The linguistic families are meant to group features into smaller subcategories, enabling users to search more effectively for the feature they need. All family names are unique, and each family belongs to a specific formulation. This means that the features in a family are either all foundation or all derivation. A linguistic family also serves as an important building block of our feature extraction system. LFTK as a program is essentially a linked collection of several feature extraction modules where each module represents a linguistic family.
 
 <img src="assets/categorization_.png" width="800" align="center">
 
@@ -70,7 +70,9 @@ Each handcrafted linguistic feature can either foundation or derivation. Derivat
 
 Each handcrafted linguistic feature also has an assigned language value. If the linguistic feature is universally applicable across languages, it is denoted "general". These general linguistic features can be used with any language given that spaCy has a supporting pipeline for that functionality in that language. This can be easily checked on [spaCy pipelines](https://universaldependencies.org/u/pos/). If the feature is designed for a specific language, like English, it is denoted with the specific language code.
 
-### Programmatically Searching Linguistic Features
+**All attributes can be found below.**
+
+### Programmatically Searching Handcrafted Features
 
 ```python
 import lftk
@@ -114,14 +116,15 @@ print(searched_features)
 - **avgentity** : averaging **entity** features over certain spans
 - **typetokenratio**  : type token ratio is known to capture lexical richness of a text
 - **readformula** : traditional readability formulas that calculate text readability
+- **readtimeformula** : basic reading time formulas (in seconds)
 
 ### Attribute: language
 - **general** : LFTK can extract this feature in a language-agnostic manner when supplied with an appropriate spaCy pipeline
 - **en** : LFTK can extract this feature in English only
 
-## Frequently Asked Questions
-### How to extract features by group? Do I have to specify each feature individually?
-No. We have a good way around using search function. First, think about how you want to search for your handcrafted linguistic features. In this case, we only want **wordsent** family features that generally work across languages. 
+## Essential Tips and To-Do Guides
+### Q: How to extract features by group? Do I have to specify each feature individually?
+No. We have a good way around, using the convenient search function. First, think about how you want to search for your handcrafted linguistic features. In this case, we only want **wordsent** family features that generally work across languages. 
 
 ```Python
 # specify attributes and set return_format to "list_key"
@@ -130,8 +133,9 @@ searched_features = lftk.search_features(family = "wordsent", language = "genera
 #['t_word', 't_stopword', 't_punct', 't_uword', 't_sent', 't_char']
 print(searched_features)
 ```
+How is this possible? ```search_features``` function returns all available features by default and a user can restrict the returned features by specifying attributes. This is analogous to asking the function to "*return all features that are {**attribute 1**}, {**attribute 2**}, ...*" In the above case, "*return all features that are {**family = "wordsent"**}, {**language = "general"**}*".
 
-See how setting ```return_format``` variable to "list_key" returns a list of the feature keys that match the user-given attributes. Now, we pass those searched keys into ```extract``` function.
+Also, see how setting ```return_format``` variable to "list_key" returns a list of the feature keys that match the user-given attributes. Now, we pass those searched keys into ```extract``` function.
 
 ```Python
 # now, extract the handcrafted linguistic features that you need
@@ -139,4 +143,20 @@ extracted_features = LFTK.extract(features = searched_features)
 
 # {'t_word': 8, 't_stopword': 4, 't_punct': 1, 't_uword': 9, 't_sent': 1, 't_char': 36}
 print(extracted_features)
+```
+
+### Q: What if I wanted to extract features from multiple groups?
+```search_features``` function only allows users to pass one argument per attribute. This means that you will need to make multiple individual calls. For example, to obtain a list of features from **wordsent** family and **readtimeformula** family,
+
+```Python
+searched_features_A = lftk.search_features(family = "wordsent", return_format = "list_key")
+searched_features_B = lftk.search_features(family = "readtimeformula", return_format = "list_key")
+
+result = searched_features_A + searched_features_B
+```
+
+Then, you can call the usual extraction function,
+
+```Python
+extracted_features = LFTK.extract(features = result)
 ```
