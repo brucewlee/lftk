@@ -10,7 +10,10 @@ LFTK = lftk.Extractor(docs = doc)
 
 searched_features_A = lftk.search_features(return_format = "list_key")
 
+tic = time.perf_counter()
 extracted_features = LFTK.extract(features = searched_features_A)
+toc = time.perf_counter()
+print(f"{toc - tic:0.4f} seconds")
 
 print(len(extracted_features.keys()))
 print(extracted_features)
