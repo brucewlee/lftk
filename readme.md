@@ -58,7 +58,7 @@ extracted_features = LFTK.extract(features = ["a_word_ps", "a_kup_pw", "n_noun"]
 # {'a_word_ps': 8.0, 'a_kup_pw': 5.754, 'n_noun': 2}
 print(extracted_features)
 ```
-Also, read [Essential Tips and To-Do Guides](essential-tips-and-todo-guides).
+Also, read [Essential Tips and To-Do Guides](#essential-tips-and-to-do-guides).
 
 ## Deep Dive: Handcrafted Linguistic Features
 
