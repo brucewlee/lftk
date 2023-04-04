@@ -2,7 +2,7 @@
 <img alt="PyPI Downloads" src="https://img.shields.io/pypi/dm/lftk?color=white&label=PyPI%20Downloads&style=plastic"></a>
 <img alt="Language" src="https://img.shields.io/github/languages/top/brucewlee/lftk?style=plastic"></a>
 <img alt="Available Features" src="https://img.shields.io/badge/Linguistic%20Feature%20Count-227-yellowgreen"></a>
-<img alt="Latest Version" src="https://img.shields.io/badge/Latest%20Version-1.0.6-red"></a>
+<img alt="Latest Version" src="https://img.shields.io/badge/Latest%20Version-1.0.7-red"></a>
 <img src="assets/logo-color.png" width="250" align="right">
 
 # LFTK
