@@ -84,7 +84,6 @@
 {"key":"simp_adp_var","name":"simple_adpositions_variation","formulation":"derivation","domain":"lexico-semantics", "family":"lexicalvariation", "language":"general"}
 {"key":"simp_adv_var","name":"simple_adverbs_variation","formulation":"derivation","domain":"lexico-semantics", "family":"lexicalvariation", "language":"general"}
 {"key":"simp_aux_var","name":"simple_auxiliaries_variation","formulation":"derivation","domain":"lexico-semantics", "family":"lexicalvariation", "language":"general"}
-{"key":"simp_conj_var","name":"simple_conjunctions_variation","formulation":"derivation","domain":"lexico-semantics", "family":"lexicalvariation", "language":"general"}
 {"key":"simp_cconj_var","name":"simple_coordinating_conjunctions_variation","formulation":"derivation","domain":"lexico-semantics", "family":"lexicalvariation", "language":"general"}
 {"key":"simp_det_var","name":"simple_determiners_variation","formulation":"derivation","domain":"lexico-semantics", "family":"lexicalvariation", "language":"general"}
 {"key":"simp_intj_var","name":"simple_interjections_variation","formulation":"derivation","domain":"lexico-semantics", "family":"lexicalvariation", "language":"general"}
@@ -102,7 +101,6 @@
 {"key":"root_adp_var","name":"root_adpositions_variation","formulation":"derivation","domain":"lexico-semantics", "family":"lexicalvariation", "language":"general"}
 {"key":"root_adv_var","name":"root_adverbs_variation","formulation":"derivation","domain":"lexico-semantics", "family":"lexicalvariation", "language":"general"}
 {"key":"root_aux_var","name":"root_auxiliaries_variation","formulation":"derivation","domain":"lexico-semantics", "family":"lexicalvariation", "language":"general"}
-{"key":"root_conj_var","name":"root_conjunctions_variation","formulation":"derivation","domain":"lexico-semantics", "family":"lexicalvariation", "language":"general"}
 {"key":"root_cconj_var","name":"root_coordinating_conjunctions_variation","formulation":"derivation","domain":"lexico-semantics", "family":"lexicalvariation", "language":"general"}
 {"key":"root_det_var","name":"root_determiners_variation","formulation":"derivation","domain":"lexico-semantics", "family":"lexicalvariation", "language":"general"}
 {"key":"root_intj_var","name":"root_interjections_variation","formulation":"derivation","domain":"lexico-semantics", "family":"lexicalvariation", "language":"general"}
@@ -120,7 +118,6 @@
 {"key":"corr_adp_var","name":"corrected_adpositions_variation","formulation":"derivation","domain":"lexico-semantics", "family":"lexicalvariation", "language":"general"}
 {"key":"corr_adv_var","name":"corrected_adverbs_variation","formulation":"derivation","domain":"lexico-semantics", "family":"lexicalvariation", "language":"general"}
 {"key":"corr_aux_var","name":"corrected_auxiliaries_variation","formulation":"derivation","domain":"lexico-semantics", "family":"lexicalvariation", "language":"general"}
-{"key":"corr_conj_var","name":"corrected_conjunctions_variation","formulation":"derivation","domain":"lexico-semantics", "family":"lexicalvariation", "language":"general"}
 {"key":"corr_cconj_var","name":"corrected_coordinating_conjunctions_variation","formulation":"derivation","domain":"lexico-semantics", "family":"lexicalvariation", "language":"general"}
 {"key":"corr_det_var","name":"corrected_determiners_variation","formulation":"derivation","domain":"lexico-semantics", "family":"lexicalvariation", "language":"general"}
 {"key":"corr_intj_var","name":"corrected_interjections_variation","formulation":"derivation","domain":"lexico-semantics", "family":"lexicalvariation", "language":"general"}
@@ -148,7 +145,6 @@
 {"key":"n_adp","name":"total_number_of_adpositions","formulation":"foundation","domain":"syntax", "family":"partofspeech", "language":"general"}
 {"key":"n_adv","name":"total_number_of_adverbs","formulation":"foundation","domain":"syntax", "family":"partofspeech", "language":"general"}
 {"key":"n_aux","name":"total_number_of_auxiliaries","formulation":"foundation","domain":"syntax", "family":"partofspeech", "language":"general"}
-{"key":"n_conj","name":"total_number_of_conjunctions","formulation":"foundation","domain":"syntax", "family":"partofspeech", "language":"general"}
 {"key":"n_cconj","name":"total_number_of_coordinating_conjunctions","formulation":"foundation","domain":"syntax", "family":"partofspeech", "language":"general"}
 {"key":"n_det","name":"total_number_of_determiners","formulation":"foundation","domain":"syntax", "family":"partofspeech", "language":"general"}
 {"key":"n_intj","name":"total_number_of_interjections","formulation":"foundation","domain":"syntax", "family":"partofspeech", "language":"general"}
@@ -166,7 +162,6 @@
 {"key":"n_uadp","name":"total_number_of_unique_adpositions","formulation":"foundation","domain":"syntax", "family":"partofspeech", "language":"general"}
 {"key":"n_uadv","name":"total_number_of_unique_adverbs","formulation":"foundation","domain":"syntax", "family":"partofspeech", "language":"general"}
 {"key":"n_uaux","name":"total_number_of_unique_auxiliaries","formulation":"foundation","domain":"syntax", "family":"partofspeech", "language":"general"}
-{"key":"n_uconj","name":"total_number_of_unique_conjunctions","formulation":"foundation","domain":"syntax", "family":"partofspeech", "language":"general"}
 {"key":"n_ucconj","name":"total_number_of_unique_coordinating_conjunctions","formulation":"foundation","domain":"syntax", "family":"partofspeech", "language":"general"}
 {"key":"n_udet","name":"total_number_of_unique_determiners","formulation":"foundation","domain":"syntax", "family":"partofspeech", "language":"general"}
 {"key":"n_uintj","name":"total_number_of_unique_interjections","formulation":"foundation","domain":"syntax", "family":"partofspeech", "language":"general"}
@@ -184,7 +179,6 @@
 {"key":"a_adp_pw","name":"average_number_of_adpositions_per_word","formulation":"derivation","domain":"syntax", "family":"avgpartofspeech", "language":"general"}
 {"key":"a_adv_pw","name":"average_number_of_adverbs_per_word","formulation":"derivation","domain":"syntax", "family":"avgpartofspeech", "language":"general"}
 {"key":"a_aux_pw","name":"average_number_of_auxiliaries_per_word","formulation":"derivation","domain":"syntax", "family":"avgpartofspeech", "language":"general"}
-{"key":"a_conj_pw","name":"average_number_of_conjunctions_per_word","formulation":"derivation","domain":"syntax", "family":"avgpartofspeech", "language":"general"}
 {"key":"a_cconj_pw","name":"average_number_of_coordinating_conjunctions_per_word","formulation":"derivation","domain":"syntax", "family":"avgpartofspeech", "language":"general"}
 {"key":"a_det_pw","name":"average_number_of_determiners_per_word","formulation":"derivation","domain":"syntax", "family":"avgpartofspeech", "language":"general"}
 {"key":"a_intj_pw","name":"average_number_of_interjections_per_word","formulation":"derivation","domain":"syntax", "family":"avgpartofspeech", "language":"general"}
@@ -202,7 +196,6 @@
 {"key":"a_adp_ps","name":"average_number_of_adpositions_per_sentence","formulation":"derivation","domain":"syntax", "family":"avgpartofspeech", "language":"general"}
 {"key":"a_adv_ps","name":"average_number_of_adverbs_per_sentence","formulation":"derivation","domain":"syntax", "family":"avgpartofspeech", "language":"general"}
 {"key":"a_aux_ps","name":"average_number_of_auxiliaries_per_sentence","formulation":"derivation","domain":"syntax", "family":"avgpartofspeech", "language":"general"}
-{"key":"a_conj_ps","name":"average_number_of_conjunctions_per_sentence","formulation":"derivation","domain":"syntax", "family":"avgpartofspeech", "language":"general"}
 {"key":"a_cconj_ps","name":"average_number_of_coordinating_conjunctions_per_sentence","formulation":"derivation","domain":"syntax", "family":"avgpartofspeech", "language":"general"}
 {"key":"a_det_ps","name":"average_number_of_determiners_per_sentence","formulation":"derivation","domain":"syntax", "family":"avgpartofspeech", "language":"general"}
 {"key":"a_intj_ps","name":"average_number_of_interjections_per_sentence","formulation":"derivation","domain":"syntax", "family":"avgpartofspeech", "language":"general"}

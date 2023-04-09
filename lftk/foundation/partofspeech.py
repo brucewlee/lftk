@@ -79,26 +79,6 @@ class PartOfSpeech:
             SE.total_number_of_unique_auxiliaries_ = len([*set(pos_list)])
             return SE.total_number_of_unique_auxiliaries_
 
-    def total_number_of_conjunctions(
-        SE: object
-        ) -> float:
-        try: 
-            return SE.total_number_of_conjunctions_
-        except AttributeError:
-            pos_list = [token.pos_ for token in SE.doc]
-            SE.total_number_of_conjunctions_ = pos_list.count("CONJ")
-            return SE.total_number_of_conjunctions_
-        
-    def total_number_of_unique_conjunctions(
-        SE: object
-        ) -> float:
-        try: 
-            return SE.total_number_of_unique_conjunctions_
-        except AttributeError:
-            pos_list = [token.lemma_ for token in SE.doc if token.pos_=="CONJ"]
-            SE.total_number_of_unique_conjunctions_ = len([*set(pos_list)])
-            return SE.total_number_of_unique_conjunctions_
-
     def total_number_of_coordinating_conjunctions(
         SE: object
         ) -> float:

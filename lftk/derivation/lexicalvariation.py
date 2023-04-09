@@ -207,57 +207,6 @@ class LexicalVariation(FoundationCollector):
                     math.sqrt(2*total_number_of_auxiliaries_)
                 )
             return SE.corrected_auxiliaries_variation_
-    
-    def simple_conjunctions_variation(
-        SE: object,
-        ) -> float:
-        try:
-            return SE.simple_conjunctions_variation_
-        except AttributeError:
-            total_number_of_unique_conjunctions_ = \
-                FoundationCollector.total_number_of_unique_conjunctions(SE)
-            total_number_of_conjunctions_ = \
-                FoundationCollector.total_number_of_conjunctions(SE)
-            SE.simple_conjunctions_variation_ = \
-                safe_division(
-                    total_number_of_unique_conjunctions_,
-                    total_number_of_conjunctions_
-                )
-            return SE.simple_conjunctions_variation_
-    
-    def root_conjunctions_variation(
-        SE: object,
-        ) -> float:
-        try:
-            return SE.root_conjunctions_variation_
-        except AttributeError:
-            total_number_of_unique_conjunctions_ = \
-                FoundationCollector.total_number_of_unique_conjunctions(SE)
-            total_number_of_conjunctions_ = \
-                FoundationCollector.total_number_of_conjunctions(SE)
-            SE.root_conjunctions_variation_ = \
-                safe_division(
-                    total_number_of_unique_conjunctions_,
-                    math.sqrt(total_number_of_conjunctions_)
-                )
-            return SE.root_conjunctions_variation_
-        
-    def corrected_conjunctions_variation(
-        SE: object,
-        ) -> float:
-        try:
-            return SE.corrected_conjunctions_variation_
-        except AttributeError:
-            total_number_of_unique_conjunctions_ = \
-                FoundationCollector.total_number_of_unique_conjunctions(SE)
-            total_number_of_conjunctions_ = \
-                FoundationCollector.total_number_of_conjunctions(SE)
-            SE.corrected_conjunctions_variation_ = \
-                safe_division(
-                    total_number_of_unique_conjunctions_,
-                    math.sqrt(2*total_number_of_conjunctions_)
-                )
-            return SE.corrected_conjunctions_variation_
         
     def simple_coordinating_conjunctions_variation(
         SE: object,

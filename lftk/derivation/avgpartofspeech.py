@@ -137,40 +137,6 @@ class AvgPartOfSpeech(FoundationCollector):
                     total_number_of_sentences_
                 )
             return SE.average_number_of_auxiliaries_per_sentence_
-    
-    def average_number_of_conjunctions_per_word(
-        SE: object,
-        ) -> float:
-        try:
-            return SE.average_number_of_conjunctions_per_word_
-        except AttributeError:
-            total_number_of_words_ = \
-                FoundationCollector.total_number_of_words(SE)
-            total_number_of_conjunctions_ = \
-                FoundationCollector.total_number_of_conjunctions(SE)
-            SE.average_number_of_conjunctions_per_word_ = \
-                safe_division(
-                    total_number_of_conjunctions_,
-                    total_number_of_words_
-                )
-            return SE.average_number_of_conjunctions_per_word_
-    
-    def average_number_of_conjunctions_per_sentence(
-        SE: object,
-        ) -> float:
-        try:
-            return SE.average_number_of_conjunctions_per_sentence_
-        except AttributeError:
-            total_number_of_sentences_ = \
-                FoundationCollector.total_number_of_sentences(SE)
-            total_number_of_conjunctions_ = \
-                FoundationCollector.total_number_of_conjunctions(SE)
-            SE.average_number_of_conjunctions_per_sentence_ = \
-                safe_division(
-                    total_number_of_conjunctions_,
-                    total_number_of_sentences_
-                )
-            return SE.average_number_of_conjunctions_per_sentence_
 
     def average_number_of_coordinating_conjunctions_per_word(
         SE: object,
