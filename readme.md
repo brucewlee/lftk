@@ -131,6 +131,8 @@ print(searched_features)
 No. We have a good way around, using the convenient search function. First, think about how you want to search for your handcrafted linguistic features. In this case, we only want **wordsent** family features that generally work across languages. 
 
 ```Python
+import lftk
+
 # specify attributes and (IMPORTANT) set return_format to "list_key"
 searched_features = lftk.search_features(family = "wordsent", language = "general", return_format = "list_key")
 
