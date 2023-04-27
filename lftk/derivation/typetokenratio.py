@@ -3,9 +3,17 @@ from lftk.derivation.foundation_collector import FoundationCollector
 from lftk.utils import safe_division
 
 class TypeTokenRatio(FoundationCollector):
+    """TypeTokenRatio
+
+    Parent class for features that are in the 'typetokenratio' family.
+    """
+
     def simple_type_token_ratio(
         SE: object,
         ) -> float:
+        """
+        returns value of (total number of unique lemmatized words / total number of words)
+        """
         try:
             return SE.simple_type_token_ratio_
         except AttributeError:
@@ -23,6 +31,9 @@ class TypeTokenRatio(FoundationCollector):
     def root_type_token_ratio(
         SE: object,
         ) -> float:
+        """
+        returns value of (total number of unique lemmatized words / root(total number of words))
+        """
         try:
             return SE.root_type_token_ratio_
         except AttributeError:
@@ -40,6 +51,9 @@ class TypeTokenRatio(FoundationCollector):
     def corrected_type_token_ratio(
         SE: object,
         ) -> float:
+        """
+        returns value of (total number of unique lemmatized words / root(2*total number of words))
+        """
         try:
             return SE.corrected_type_token_ratio_
         except AttributeError:
@@ -57,6 +71,9 @@ class TypeTokenRatio(FoundationCollector):
     def bilogarithmic_type_token_ratio(
         SE: object,
         ) -> float:
+        """
+        returns value of (log(total number of unique lemmatized words) / log(total number of words))
+        """
         try:
             return SE.bilogarithmic_type_token_ratio_
         except AttributeError:
@@ -74,6 +91,9 @@ class TypeTokenRatio(FoundationCollector):
     def uber_type_token_ratio(
         SE: object,
         ) -> float:
+        """
+        returns value of (log(total number of unique lemmatized words)^2 / log(total number of words / total number of unique lemmatized words))
+        """
         try:
             return SE.uber_type_token_ratio_
         except AttributeError:
@@ -96,6 +116,9 @@ class TypeTokenRatio(FoundationCollector):
     def simple_type_token_ratio_no_lemma(
         SE: object,
         ) -> float:
+        """
+        returns value of (total number of unique words / total number of words)
+        """
         try:
             return SE.simple_type_token_ratio_no_lemma_
         except AttributeError:
@@ -113,6 +136,9 @@ class TypeTokenRatio(FoundationCollector):
     def root_type_token_ratio_no_lemma(
         SE: object,
         ) -> float:
+        """
+        returns value of (total number of unique words / root(total number of words))
+        """
         try:
             return SE.root_type_token_ratio_no_lemma_
         except AttributeError:
@@ -130,6 +156,9 @@ class TypeTokenRatio(FoundationCollector):
     def corrected_type_token_ratio_no_lemma(
         SE: object,
         ) -> float:
+        """
+        returns value of (total number of unique words / root(2*total number of words))
+        """
         try:
             return SE.corrected_type_token_ratio_no_lemma_
         except AttributeError:
@@ -147,6 +176,9 @@ class TypeTokenRatio(FoundationCollector):
     def bilogarithmic_type_token_ratio_no_lemma(
         SE: object,
         ) -> float:
+        """
+        returns value of (log(total number of unique words) / log(total number of words))
+        """
         try:
             return SE.bilogarithmic_type_token_ratio_no_lemma_
         except AttributeError:
@@ -164,6 +196,9 @@ class TypeTokenRatio(FoundationCollector):
     def uber_type_token_ratio_no_lemma(
         SE: object,
         ) -> float:
+        """
+        returns value of (log(total number of unique lemmatized words)^2 / log(total number of words / total number of unique lemmatized words))
+        """
         try:
             return SE.uber_type_token_ratio_no_lemma_
         except AttributeError:

@@ -3,9 +3,17 @@ from lftk.derivation.foundation_collector import FoundationCollector
 from lftk.utils import safe_division
 
 class AvgWordSent(FoundationCollector):
+    """AvgWordSent
+
+    Parent class for features that are in the 'avgwordsent' family.
+    """
+
     def average_number_of_words_per_sentence(
         SE: object,
         ) -> float:
+        """
+        returns value of (total number of words / total number of sentences)
+        """
         try:
             return SE.average_number_of_words_per_sentence_
         except AttributeError:
@@ -23,6 +31,9 @@ class AvgWordSent(FoundationCollector):
     def average_number_of_characters_per_sentence(
         SE: object,
         ) -> float:
+        """
+        returns value of (total number of characters / total number of sentences)
+        """
         try:
             return SE.average_number_of_characters_per_sentence_
         except AttributeError:
@@ -40,6 +51,9 @@ class AvgWordSent(FoundationCollector):
     def average_number_of_characters_per_word(
         SE: object,
         ) -> float:
+        """
+        returns value of (total number of characters / total number of words)
+        """
         try:
             return SE.average_number_of_characters_per_word_
         except AttributeError:
@@ -57,6 +71,9 @@ class AvgWordSent(FoundationCollector):
     def average_number_of_syllables_per_sentence(
         SE: object,
         ) -> float:
+        """
+        returns value of (total number of syllables / total number of sentences)
+        """
         try:
             return SE.average_number_of_syllables_per_sentence_
         except AttributeError:
@@ -74,6 +91,9 @@ class AvgWordSent(FoundationCollector):
     def average_number_of_syllables_per_word(
         SE: object,
         ) -> float:
+        """
+        returns value of (total number of syllables / total number of words)
+        """
         try:
             return SE.average_number_of_syllables_per_word_
         except AttributeError:
@@ -91,6 +111,9 @@ class AvgWordSent(FoundationCollector):
     def average_number_of_stop_words_per_sentence(
         SE: object,
         ) -> float:
+        """
+        returns value of (total number of stop words / total number of sentences)
+        """
         try:
             return SE.average_number_of_stop_words_per_sentence_
         except AttributeError:
@@ -108,6 +131,9 @@ class AvgWordSent(FoundationCollector):
     def average_number_of_stop_words_per_word(
         SE: object,
         ) -> float:
+        """
+        returns value of (total number of stop words / total number of words)
+        """
         try:
             return SE.average_number_of_stop_words_per_word_
         except AttributeError:
@@ -125,6 +151,9 @@ class AvgWordSent(FoundationCollector):
     def average_number_of_punctuations_per_sentence(
         SE: object,
         ) -> float:
+        """
+        returns value of (total number of punctuations / total number of sentences)
+        """
         try:
             return SE.average_number_of_punctuations_per_sentence_
         except AttributeError:
@@ -142,6 +171,9 @@ class AvgWordSent(FoundationCollector):
     def average_number_of_punctuations_per_word(
         SE: object,
         ) -> float:
+        """
+        returns value of (total number of punctuations / total number of words)
+        """
         try:
             return SE.average_number_of_punctuations_per_word_
         except AttributeError:

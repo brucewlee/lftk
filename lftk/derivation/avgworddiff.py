@@ -3,9 +3,17 @@ from lftk.derivation.foundation_collector import FoundationCollector
 from lftk.utils import safe_division
 
 class AvgWordDiff(FoundationCollector):
+    """AvgWordDiff
+
+    Parent class for features that are in the 'avgworddiff' family.
+    """
+
     def average_kuperman_age_of_acquistion_of_words_per_sentence(
         SE: object,
         ) -> float:
+        """
+        returns value of (total Kuperman score / total number of sentences)
+        """
         try:
             return SE.average_kuperman_age_of_acquistion_of_words_per_sentence_
         except AttributeError:
@@ -24,6 +32,9 @@ class AvgWordDiff(FoundationCollector):
     def average_kuperman_age_of_acquistion_of_words_per_word(
         SE: object,
         ) -> float:
+        """
+        returns value of (total Kuperman score / total number of words)
+        """
         try:
             return SE.average_kuperman_age_of_acquistion_of_words_per_word_
         except AttributeError:
@@ -42,6 +53,9 @@ class AvgWordDiff(FoundationCollector):
     def average_brysbaert_age_of_acquistion_of_words_per_word(
         SE: object,
         ) -> float:
+        """
+        returns value of (total Brysbaert score / total number of words)
+        """
         try:
             return SE.average_brysbaert_age_of_acquistion_of_words_per_word_
         except AttributeError:
@@ -60,6 +74,9 @@ class AvgWordDiff(FoundationCollector):
     def average_brysbaert_age_of_acquistion_of_words_per_sentence(
         SE: object,
         ) -> float:
+        """
+        returns value of (total Brysbaert score / total number of sentence)
+        """
         try:
             return SE.average_brysbaert_age_of_acquistion_of_words_per_sentence_
         except AttributeError:
@@ -78,6 +95,9 @@ class AvgWordDiff(FoundationCollector):
     def average_subtlex_us_zipf_of_words_per_word(
         SE: object,
         ) -> float:
+        """
+        returns value of (total subtlexus zipf score / total number of words)
+        """
         try:
             return SE.average_subtlex_us_zipf_of_words_per_word_
         except AttributeError:
@@ -96,6 +116,9 @@ class AvgWordDiff(FoundationCollector):
     def average_subtlex_us_zipf_of_words_per_sentence(
         SE: object,
         ) -> float:
+        """
+        returns value of (total subtlexus zipf score / total number of sentences)
+        """
         try:
             return SE.average_subtlex_us_zipf_of_words_per_sentence_
         except AttributeError:

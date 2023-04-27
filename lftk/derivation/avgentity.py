@@ -2,9 +2,17 @@ from lftk.derivation.foundation_collector import FoundationCollector
 from lftk.utils import safe_division
 
 class AvgEntity(FoundationCollector):
+    """AvgEntity
+
+    Parent class for features that are in the 'wordsent' family.
+    """
+
     def average_number_of_named_entities_per_word(
         SE: object,
         ) -> float:
+        """
+        returns the value of (total number of named entities / total number of words)
+        """
         try:
             return SE.average_number_of_named_entities_per_word_
         except AttributeError:
@@ -23,7 +31,7 @@ class AvgEntity(FoundationCollector):
         SE: object
         ) -> float:
         """
-        returns the number of named entities that are PERSON (People, including fictional)
+        returns the value of (total number of named entities that are PERSON / total number of words) -> People, including fictional
         """
         try:
             return SE.average_number_of_named_entities_person_per_word_ 
@@ -43,7 +51,7 @@ class AvgEntity(FoundationCollector):
         SE: object
         ) -> float:
         """
-        returns the number of named entities that are NORP (Nationalities or religious or political groups)
+        returns the value of (total number of named entities that are NORP / total number of words) -> Nationalities or religious or political groups
         """
         try:
             return SE.average_number_of_named_entities_norp_per_word_ 
@@ -63,7 +71,7 @@ class AvgEntity(FoundationCollector):
         SE: object
         ) -> float:
         """
-        returns the number of named entities that are FAC (Buildings, airports, highways, bridges, etc.)
+        returns the value of (total number of named entities that are FAC / total number of words) -> Buildings, airports, highways, bridges, etc.
         """
         try:
             return SE.average_number_of_named_entities_fac_per_word_ 
@@ -83,7 +91,7 @@ class AvgEntity(FoundationCollector):
         SE: object
         ) -> float:
         """
-        returns the number of named entities that are ORG (Companies, agencies, institutions, etc.)
+        returns the value of (total number of named entities that are ORG / total number of words) -> Companies, agencies, institutions, etc.
         """
         try:
             return SE.average_number_of_named_entities_org_per_word_ 
@@ -103,7 +111,7 @@ class AvgEntity(FoundationCollector):
         SE: object
         ) -> float:
         """
-        returns the number of named entities that are GPE (Countries, cities, states.)
+        returns the value of (total number of named entities that are GPE / total number of words) -> Countries, cities, states.
         """
         try:
             return SE.average_number_of_named_entities_gpe_per_word_ 
@@ -123,7 +131,7 @@ class AvgEntity(FoundationCollector):
         SE: object
         ) -> float:
         """
-        returns the number of named entities that are LOC (Non-GPE locations, mountain ranges, bodies of water.)
+        returns the value of (total number of named entities that are LOC / total number of words) -> Non-GPE locations, mountain ranges, bodies of water.
         """
         try:
             return SE.average_number_of_named_entities_loc_per_word_ 
@@ -143,7 +151,7 @@ class AvgEntity(FoundationCollector):
         SE: object
         ) -> float:
         """
-        returns the number of named entities that are PRODUCT (Objects, vehicles, foods, etc. (Not services.)
+        returns the value of (total number of named entities that are PRODUCT / total number of words) -> Objects, vehicles, foods, etc., but not services.
         """
         try:
             return SE.average_number_of_named_entities_product_per_word_ 
@@ -163,7 +171,7 @@ class AvgEntity(FoundationCollector):
         SE: object
         ) -> float:
         """
-        returns the number of named entities that are EVENT (Named hurricanes, battles, wars, sports events, etc.)
+        returns the value of (total number of named entities that are EVENT / total number of words) -> Named hurricanes, battles, wars, sports events, etc.
         """
         try:
             return SE.average_number_of_named_entities_event_per_word_ 
@@ -183,7 +191,7 @@ class AvgEntity(FoundationCollector):
         SE: object
         ) -> float:
         """
-        returns the number of named entities that are WORK_OF_ART (Titles of books, songs, etc.)
+        returns the value of (total number of named entities that are WORK_OF_ART / total number of words) -> Titles of books, songs, etc.
         """
         try:
             return SE.average_number_of_named_entities_art_per_word_ 
@@ -203,7 +211,7 @@ class AvgEntity(FoundationCollector):
         SE: object
         ) -> float:
         """
-        returns the number of named entities that are LAW (Named documents made into laws.)
+        returns the value of (total number of named entities that are LAW / total number of words) -> Named documents made into laws.
         """
         try:
             return SE.average_number_of_named_entities_law_per_word_ 
@@ -223,7 +231,7 @@ class AvgEntity(FoundationCollector):
         SE: object
         ) -> float:
         """
-        returns the number of named entities that are LANGUAGE (Any named language.)
+        returns the value of (total number of named entities that are LANGUAGE / total number of words) -> Any named language.
         """
         try:
             return SE.average_number_of_named_entities_language_per_word_ 
@@ -243,7 +251,7 @@ class AvgEntity(FoundationCollector):
         SE: object
         ) -> float:
         """
-        returns the number of named entities that are DATE (Absolute or relative dates or periods.)
+        returns the value of (total number of named entities that are DATE / total number of words) -> Absolute or relative dates or periods.
         """
         try:
             return SE.average_number_of_named_entities_date_per_word_ 
@@ -263,7 +271,7 @@ class AvgEntity(FoundationCollector):
         SE: object
         ) -> float:
         """
-        returns the number of named entities that are TIME (Times smaller than a day.)
+        returns the value of (total number of named entities that are TIME / total number of words) -> Times smaller than a day.
         """
         try:
             return SE.average_number_of_named_entities_time_per_word_ 
@@ -283,7 +291,7 @@ class AvgEntity(FoundationCollector):
         SE: object
         ) -> float:
         """
-        returns the number of named entities that are PERCENT (Percentage, including ”%“.)
+        returns the value of (total number of named entities that are PERCENT / total number of words) -> Percentage, including ”%“.
         """
         try:
             return SE.average_number_of_named_entities_percent_per_word_ 
@@ -303,7 +311,7 @@ class AvgEntity(FoundationCollector):
         SE: object
         ) -> float:
         """
-        returns the number of named entities that are MONEY (Monetary values, including unit.)
+        returns the value of (total number of named entities that are MONEY / total number of words) -> Monetary values, including unit.
         """
         try:
             return SE.average_number_of_named_entities_money_per_word_ 
@@ -323,7 +331,7 @@ class AvgEntity(FoundationCollector):
         SE: object
         ) -> float:
         """
-        returns the number of named entities that are QUANTITY (Measurements, as of weight or distance.)
+        returns the value of (total number of named entities that are QUANTITY / total number of words) -> Measurements, as of weight or distance.
         """
         try:
             return SE.average_number_of_named_entities_quantity_per_word_ 
@@ -343,7 +351,7 @@ class AvgEntity(FoundationCollector):
         SE: object
         ) -> float:
         """
-        returns the number of named entities that are ORDINAL (“first”, “second”, etc.)
+        returns the value of (total number of named entities that are ORDINAL / total number of words) -> “first”, “second”, etc.
         """
         try:
             return SE.average_number_of_named_entities_ordinal_per_word_ 
@@ -363,7 +371,7 @@ class AvgEntity(FoundationCollector):
         SE: object
         ) -> float:
         """
-        returns the number of named entities that are CARDINAL (Numerals that do not fall under another type.)
+        returns the value of (total number of named entities that are CARDINAL / total number of words) -> Numerals that do not fall under another type.
         """
         try:
             return SE.average_number_of_named_entities_cardinal_per_word_ 
@@ -382,6 +390,9 @@ class AvgEntity(FoundationCollector):
     def average_number_of_named_entities_per_sentence(
         SE: object,
         ) -> float:
+        """
+        returns the value of (total number of named entities / total number of sentences)
+        """
         try:
             return SE.average_number_of_named_entities_per_sentence_
         except AttributeError:
@@ -400,7 +411,7 @@ class AvgEntity(FoundationCollector):
         SE: object
         ) -> float:
         """
-        returns the number of named entities that are PERSON (People, including fictional)
+        returns the value of (total number of named entities that are PERSON / total number of sentences) -> People, including fictional
         """
         try:
             return SE.average_number_of_named_entities_person_per_sentence_ 
@@ -420,7 +431,7 @@ class AvgEntity(FoundationCollector):
         SE: object
         ) -> float:
         """
-        returns the number of named entities that are NORP (Nationalities or religious or political groups)
+        returns the value of (total number of named entities that are NORP / total number of sentences) -> Nationalities or religious or political groups
         """
         try:
             return SE.average_number_of_named_entities_norp_per_sentence_ 
@@ -440,7 +451,7 @@ class AvgEntity(FoundationCollector):
         SE: object
         ) -> float:
         """
-        returns the number of named entities that are FAC (Buildings, airports, highways, bridges, etc.)
+        returns the value of (total number of named entities that are FAC / total number of sentences) -> Buildings, airports, highways, bridges, etc.
         """
         try:
             return SE.average_number_of_named_entities_fac_per_sentence_ 
@@ -460,7 +471,7 @@ class AvgEntity(FoundationCollector):
         SE: object
         ) -> float:
         """
-        returns the number of named entities that are ORG (Companies, agencies, institutions, etc.)
+        returns the value of (total number of named entities that are ORG / total number of sentences) -> Companies, agencies, institutions, etc.
         """
         try:
             return SE.average_number_of_named_entities_org_per_sentence_ 
@@ -480,7 +491,7 @@ class AvgEntity(FoundationCollector):
         SE: object
         ) -> float:
         """
-        returns the number of named entities that are GPE (Countries, cities, states.)
+        returns the value of (total number of named entities that are GPE / total number of sentences) -> Countries, cities, states.
         """
         try:
             return SE.average_number_of_named_entities_gpe_per_sentence_ 
@@ -500,7 +511,7 @@ class AvgEntity(FoundationCollector):
         SE: object
         ) -> float:
         """
-        returns the number of named entities that are LOC (Non-GPE locations, mountain ranges, bodies of water.)
+        returns the value of (total number of named entities that are LOC / total number of sentences) -> Non-GPE locations, mountain ranges, bodies of water.
         """
         try:
             return SE.average_number_of_named_entities_loc_per_sentence_ 
@@ -520,7 +531,7 @@ class AvgEntity(FoundationCollector):
         SE: object
         ) -> float:
         """
-        returns the number of named entities that are PRODUCT (Objects, vehicles, foods, etc. (Not services.)
+        returns the value of (total number of named entities that are PRODUCT / total number of sentences) -> Objects, vehicles, foods, etc., but not services.
         """
         try:
             return SE.average_number_of_named_entities_product_per_sentence_ 
@@ -540,7 +551,7 @@ class AvgEntity(FoundationCollector):
         SE: object
         ) -> float:
         """
-        returns the number of named entities that are EVENT (Named hurricanes, battles, wars, sports events, etc.)
+        returns the value of (total number of named entities that are EVENT / total number of sentences) -> Named hurricanes, battles, wars, sports events, etc.
         """
         try:
             return SE.average_number_of_named_entities_event_per_sentence_ 
@@ -560,7 +571,7 @@ class AvgEntity(FoundationCollector):
         SE: object
         ) -> float:
         """
-        returns the number of named entities that are WORK_OF_ART (Titles of books, songs, etc.)
+        returns the value of (total number of named entities that are WORK_OF_ART / total number of sentences) -> Titles of books, songs, etc.
         """
         try:
             return SE.average_number_of_named_entities_art_per_sentence_ 
@@ -580,7 +591,7 @@ class AvgEntity(FoundationCollector):
         SE: object
         ) -> float:
         """
-        returns the number of named entities that are LAW (Named documents made into laws.)
+        returns the value of (total number of named entities that are LAW / total number of sentences) -> Named documents made into laws.
         """
         try:
             return SE.average_number_of_named_entities_law_per_sentence_ 
@@ -600,7 +611,7 @@ class AvgEntity(FoundationCollector):
         SE: object
         ) -> float:
         """
-        returns the number of named entities that are LANGUAGE (Any named language.)
+        returns the value of (total number of named entities that are LANGUAGE / total number of sentences) -> Any named language.
         """
         try:
             return SE.average_number_of_named_entities_language_per_sentence_ 
@@ -620,7 +631,7 @@ class AvgEntity(FoundationCollector):
         SE: object
         ) -> float:
         """
-        returns the number of named entities that are DATE (Absolute or relative dates or periods.)
+        returns the value of (total number of named entities that are DATE / total number of sentences) -> Absolute or relative dates or periods.
         """
         try:
             return SE.average_number_of_named_entities_date_per_sentence_ 
@@ -640,7 +651,7 @@ class AvgEntity(FoundationCollector):
         SE: object
         ) -> float:
         """
-        returns the number of named entities that are TIME (Times smaller than a day.)
+        returns the value of (total number of named entities that are TIME / total number of sentences) -> Times smaller than a day.
         """
         try:
             return SE.average_number_of_named_entities_time_per_sentence_ 
@@ -660,7 +671,7 @@ class AvgEntity(FoundationCollector):
         SE: object
         ) -> float:
         """
-        returns the number of named entities that are PERCENT (Percentage, including ”%“.)
+        returns the value of (total number of named entities that are PERCENT / total number of sentences) -> Percentage, including ”%“.
         """
         try:
             return SE.average_number_of_named_entities_percent_per_sentence_ 
@@ -680,7 +691,7 @@ class AvgEntity(FoundationCollector):
         SE: object
         ) -> float:
         """
-        returns the number of named entities that are MONEY (Monetary values, including unit.)
+        returns the value of (total number of named entities that are MONEY / total number of sentences) -> Monetary values, including unit.
         """
         try:
             return SE.average_number_of_named_entities_money_per_sentence_ 
@@ -700,7 +711,7 @@ class AvgEntity(FoundationCollector):
         SE: object
         ) -> float:
         """
-        returns the number of named entities that are QUANTITY (Measurements, as of weight or distance.)
+        returns the value of (total number of named entities that are QUANTITY / total number of sentences) -> Measurements, as of weight or distance.
         """
         try:
             return SE.average_number_of_named_entities_quantity_per_sentence_ 
@@ -720,7 +731,7 @@ class AvgEntity(FoundationCollector):
         SE: object
         ) -> float:
         """
-        returns the number of named entities that are ORDINAL (“first”, “second”, etc.)
+        returns the value of (total number of named entities that are ORDINAL / total number of sentences) -> “first”, “second”, etc.
         """
         try:
             return SE.average_number_of_named_entities_ordinal_per_sentence_ 
@@ -740,7 +751,7 @@ class AvgEntity(FoundationCollector):
         SE: object
         ) -> float:
         """
-        returns the number of named entities that are CARDINAL (Numerals that do not fall under another type.)
+        returns the value of (total number of named entities that are CARDINAL / total number of sentences) -> Numerals that do not fall under another type.
         """
         try:
             return SE.average_number_of_named_entities_cardinal_per_sentence_ 

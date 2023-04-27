@@ -1,14 +1,7 @@
 # -*- coding: UTF-8 -*-
-"""
-Software: LFTK - Linguistic Features Toolkit
-Script: extractor.py
-License: CC-BY-SA 4.0
-Original Author: Bruce W. Lee (이웅성) @brucewlee
-Affiliation 1: LXPER Inc. - Seoul, South Korea
-Affiliation 2: University of Pennsylvania - PA, USA
-"""
 import os
 from typing import Union, Dict, List
+import sys
 
 import spacy
 import pandas as pd
@@ -25,22 +18,36 @@ SUBTLEX_US_PATH = os.path.join(CURRENT_PATH, 'resources/subtlex_us.csv')
 
 
 class Extractor:
+    """Main object
+
+    Saves your spaCy doc objects to extract linguistic features from. As you declare this object, pass in spaCy doc(s).
+        
+    Parameters
+    ----------
+    docs : Union[spacy.tokens.doc.Doc, List[spacy.tokens.doc.Doc]]
+        spaCy doc object or a list of spacy doc objects
+
+    Examples
+    ----------
+    >>> import spacy
+    >>> import lftk
+    >>> 
+    >>> nlp = spacy.load("en_core_web_sm")
+    >>> doc1 = nlp("I think effects computers have on people are great!")
+    >>> doc2 = nlp("I like drinking coffee...")
+    >>> 
+    >>> LFTK = lftk.Extractor(docs = [doc1, doc2])
+
+
+    """
     def __init__(
         self, 
         docs: Union[spacy.tokens.doc.Doc, List[spacy.tokens.doc.Doc]]
         ) -> None:
-        """
-            Starter class for users
-            input :
-            - self
-            - docs: single or multiple spacy doc object
-            saves :
-            - self.doc: spacy doc object
-            - self.feature_map: dictionary of dictionary that contains "key" as the parent key and the others ("name", "type") as children keys
-        """
         # Type adjustment
         if type(docs) is not list: docs = [docs]
         self.docs = docs
+        # dictionary of dictionary that contains "key" as the parent key and the others ("name", "type") as children keys
         self.feature_map = get_feature_map(path = FEATURE_MAP_PATH)
         self.customize()
 
@@ -50,15 +57,38 @@ class Extractor:
         punctuations: bool = True,
         round_decimal: int = 3,
         ) -> None:
-        """
-            Save options
-            input :
-            - self
-            - stop_words: set to False to remove stop words in all feature calculations
-            - punctuations: set to False to remove punctuations in all feature calculations
-            - round_decimal: maximum number of returned decimal points
-            saves :
-            - self.options
+        """Global customization
+    
+        Customizes all LFTK functions to extract features based on these options. This exclude some special functions that are intentionally designed to override global options.
+        
+        Parameters
+        ----------
+        stop_words : bool (default = True)
+            Selection whether to include stop words for feature extraction
+        punctuations : bool (default = True)
+            Selection whether to include punctuations for feature extraction
+        round_decimal : int (default = 3)
+            The max number of decimal digits to return (for extracted feature values)
+    
+        Examples
+        ----------
+        >>> import spacy
+        >>> import lftk
+        >>> 
+        >>> nlp = spacy.load("en_core_web_sm")
+        >>> doc = nlp("I think effects computers have on people are great!")
+        >>> 
+        >>> LFTK = lftk.Extractor(docs = doc)
+        >>> 
+        >>> LFTK.customize(stop_words=True, punctuations=False, round_decimal=3)
+        >>> output = LFTK.extract(features = ["a_word_ps", "a_kup_pw", "n_noun"])
+        >>> # {'a_word_ps': 9.0, 'a_kup_pw': 5.323, 'n_noun': 3}
+        >>> 
+        >>> LFTK.customize(stop_words=False, punctuations=False, round_decimal=2)
+        >>> output = LFTK.extract(features = ["a_word_ps", "a_kup_pw", "n_noun"])
+        >>> # {'a_word_ps': 5.0, 'a_kup_pw': 9.6, 'n_noun': 3}
+
+
         """
         self.options = {
             'stop_words': stop_words,
@@ -73,13 +103,40 @@ class Extractor:
             Dict[str, Union[float,int]], 
             List[Dict[str, Union[float,int]]]
             ]:
-        """
-            Calculate linguistic feature(s) from all given spaCy docs
-            input :
-            - self
-            - features: features to be extracted
-            returns :
-            - result: extracted linguistic feature(s)
+        """Extract function for select features
+    
+        Extracts feature(s) that are passed in by the user. All spaCy docs that were saved during LFTK Extractor declaration are used. This function extracts all features available in LFTK by default. 
+        
+        This function only accepts feature key(s) (e.g., "t_word", "a_kup_pw").
+        
+        Parameters
+        ----------
+        features : Union[str, list] (default = "*")
+            A single feature key or a list of feature keys. Passing "*" extracts all available features.
+
+        Returns
+        ----------
+        result : Union[Dict[str, Union[float,int]], List[Dict[str, Union[float,int]]]]
+            A dictionary or a list of dictionaries, depending on the number of spaCy docs you passed in during the creation of LFTK Extractor object.
+
+        Examples
+        ----------
+        >>> import spacy
+        >>> import lftk
+        >>> 
+        >>> nlp = spacy.load("en_core_web_sm")
+        >>> doc1 = nlp("I think effects computers have on people are great!")
+        >>> doc2 = nlp("I like drinking coffee...")
+        >>> 
+        >>> LFTK = lftk.Extractor(docs = doc1)
+        >>> 
+        >>> output = LFTK.extract(features = ["a_word_ps", "a_kup_pw", "n_noun"])
+        >>> # {'a_word_ps': 10.0, 'a_kup_pw': 4.791, 'n_noun': 3}
+        >>> 
+        >>> LFTK = lftk.Extractor(docs = [doc1, doc2])
+        >>> 
+        >>> output = LFTK.extract(features = ["a_word_ps", "a_kup_pw", "n_noun"])
+        >>> # [{'a_word_ps': 10.0, 'a_kup_pw': 4.791, 'n_noun': 3}, {'a_word_ps': 5.0, 'a_kup_pw': 2.284, 'n_noun': 2}]
         """
         # Type adjustment
         if type(features) is not list: features = [features]
@@ -159,14 +216,41 @@ def search_features(
     language: str ="*",
     return_format: str = "list_dict"
     ) -> Union[List[dict], pd.core.frame.DataFrame]:
-    """
-        Return available linguistic features that match user-specified attributes
-        input :
-        - domain: specify which domain
-        - family: specify which family 
-        - return_format: how to return searched features
-        returns :
-        - result: searched linguistic feature(s)
+    """Search features
+    
+    Returns available linguistic features that match user-specified attributes. Putting "*" on any attribute is analogous to "any". You can use this function to produce list of feature keys and pass them into LFTK Extractor's extract() function (see above).
+    
+    Parameters
+    ----------
+    domain : str (default = "*")
+        A single domain name (e.g., "surface", "lexico-semantics")
+    family : str (default = "*")
+        A single family name (e.g., "worddiff", "avgwordsent")
+    language : str (default = "*")
+        A single supported language (e.g., "worddiff", "avgwordsent")
+    return_format : str (default = "list_dict")
+        Select how the searched features should be returned. The available options are "list_dict", "pandas", or "list_key".
+    
+    Returns
+    ----------
+    result : Union[List[dict], pd.core.frame.DataFrame]
+        Available features searched with user-given conditions
+
+    Examples
+    ----------
+    >>> import lftk
+    >>> 
+    >>> output = lftk.search_features(domain = 'surface', family = "avgwordsent", language="general", return_format = "list_dict")
+    >>> # [{'key': 'a_word_ps', 'name': 'average_number_of_words_per_sentence', 'formulation': 'derivation', 'domain': 'surface', 'family': 'avgwordsent', 'language': 'general'}, {'key': 'a_char_ps', 'name': 'average_number_of_characters_per_sentence', 'formulation': 'derivation', 'domain': 'surface', 'family': 'avgwordsent', 'language': 'general'}, {'key': 'a_char_pw', 'name': 'average_number_of_characters_per_word', 'formulation': 'derivation', 'domain': 'surface', 'family': 'avgwordsent', 'language': 'general'}]
+    >>> 
+    >>> output = lftk.search_features(domain = 'surface', family = "avgwordsent", language="general", return_format = "list_dict")
+    >>> #           key                                       name formulation   domain       family language
+    >>>  #9   a_word_ps       average_number_of_words_per_sentence  derivation  surface  avgwordsent  general
+    >>> # 10  a_char_ps  average_number_of_characters_per_sentence  derivation  surface  avgwordsent  general
+    >>> # 11  a_char_pw      average_number_of_characters_per_word  derivation  surface  avgwordsent  general
+    >>> 
+    >>> output = lftk.search_features(domain = 'surface', family = "avgwordsent", language="general", return_format = "list_dict")
+    >>> # ['a_word_ps', 'a_char_ps', 'a_char_pw']
     """
     feature_df = convert_ndjson_to_pd(path = FEATURE_MAP_PATH)
     if domain != "*":

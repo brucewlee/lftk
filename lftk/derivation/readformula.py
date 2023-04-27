@@ -4,23 +4,16 @@ from lftk.derivation.foundation_collector import FoundationCollector
 from lftk.utils import safe_division
 
 class ReadFormula(FoundationCollector):
+    """ReadFormula
+
+    Parent class for features that are in the 'readformula' family.
+    """
+
     def flesch_kincaid_reading_ease(
         SE: object,
         ) -> float:
         """
-        flesch kincaid reading ease formula
-        100.00–90.00	5th grade	        Very easy to read.
-        90.0–80.0	    6th grade	        Easy to read.
-        80.0–70.0	    7th grade	        Fairly easy to read.
-        70.0–60.0	    8th & 9th grade	    Plain English. 
-        60.0–50.0	    10th to 12th grade	Fairly difficult to read.
-        50.0–30.0	    College	            Difficult to read.
-        30.0–10.0	    College graduate	Very difficult to read. 
-        10.0–0.0	    Professional	    Extremely difficult to read. 
-        input :
-        - SE: Single Extractor object
-        output:
-        - SE.flesch_kincaid_reading_ease_
+        returns reading difficulty value from flesch kincaid reading ease formula, where 100.00–90.00->5th grade (Very easy to read), 90.0–80.0->6th grade (Easy to read), 80.0–70.0->7th grade (Fairly easy to read), 70.0–60.0->8th & 9th grade (Plain English, 60.0–50.0->10th to 12th grade (Fairly difficult to read), 50.0–30.0->College (Difficult to read), 30.0–10.0->College graduate (Very difficult to read), 10.0–0.0->Professional (Extremely difficult to read)
         """
         try:
             return SE.flesch_kincaid_reading_ease_
@@ -57,12 +50,7 @@ class ReadFormula(FoundationCollector):
         SE: object,
         ) -> float:
         """
-        flesch kincaid grade level
-        output number corresponds to US grade level
-        input :
-        - SE: Single Extractor object
-        output:
-        - SE.flesch_kincaid_grade_level_
+        returns reading difficulty value that corresponds to US grade level
         """
         try:
             return SE.flesch_kincaid_grade_level_
@@ -99,23 +87,7 @@ class ReadFormula(FoundationCollector):
         SE: object,
         ) -> float:
         """
-        gunning fog index
-        17	College graduate
-        16	College senior
-        15	College junior
-        14	College sophomore
-        13	College freshman
-        12	High school senior
-        11	High school junior
-        10	High school sophomore
-        9	High school freshman
-        8	Eighth grade
-        7	Seventh grade
-        6	Sixth grade
-        input :
-        - SE: Single Extractor object
-        output:
-        - SE.gunning_fog_index_
+        returns gunning fog index, where 17->College graduate, 16->College senior, 15->College junior, 14->College sophomore, 13->College freshman, 12->High school senior, 11->High school junior, 10->High school sophomore, 9->High school freshman, 8->Eighth grade, 7->Seventh grade, 6->Sixth grade
         """
         try:
             return SE.gunning_fog_index_
@@ -152,12 +124,7 @@ class ReadFormula(FoundationCollector):
         SE: object,
         ) -> float:
         """
-        simple measure of gobbledygook
-        output number corresponds to US grade level
-        input :
-        - SE: Single Extractor object
-        output:
-        - SE.smog_index_
+        returns reading difficulty value that corresponds to US grade level
         """
         try:
             return SE.smog_index_
@@ -182,12 +149,7 @@ class ReadFormula(FoundationCollector):
         SE: object,
         ) -> float:
         """
-        coleman liau index
-        output number corresponds to US grade level
-        input :
-        - SE: Single Extractor object
-        output:
-        - SE.coleman_liau_index_
+        returns reading difficulty value that corresponds to US grade level
         """
         try:
             return SE.coleman_liau_index_
@@ -224,12 +186,7 @@ class ReadFormula(FoundationCollector):
         SE: object,
         ) -> float:
         """
-        automated readability index
-        output number corresponds to US grade level
-        input :
-        - SE: Single Extractor object
-        output:
-        - SE.automated_readability_index_
+        returns reading difficulty value that corresponds to US grade level
         """
         try:
             return SE.automated_readability_index_

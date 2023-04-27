@@ -1,7 +1,15 @@
 class PartOfSpeech:
+    """PartOfSpeech
+
+    Parent class for features that are in the 'partofspeech' family.
+    """
+    
     def total_number_of_adjectives(
         SE: object
         ) -> float:
+        """
+        returns the number of adjectives
+        """
         try: 
             return SE.total_number_of_adjectives_
         except AttributeError:
@@ -12,6 +20,9 @@ class PartOfSpeech:
     def total_number_of_unique_adjectives(
         SE: object
         ) -> float:
+        """
+        returns the number of unique adjectives
+        """
         try: 
             return SE.total_number_of_unique_adjectives_
         except AttributeError:
@@ -22,6 +33,9 @@ class PartOfSpeech:
     def total_number_of_adpositions(
         SE: object
         ) -> float:
+        """
+        returns the number of adpositions
+        """
         try: 
             return SE.total_number_of_adpositions_
         except AttributeError:
@@ -32,6 +46,9 @@ class PartOfSpeech:
     def total_number_of_unique_adpositions(
         SE: object
         ) -> float:
+        """
+        returns the number of unique adpositions
+        """
         try: 
             return SE.total_number_of_unique_adpositions_
         except AttributeError:
@@ -42,6 +59,9 @@ class PartOfSpeech:
     def total_number_of_adverbs(
         SE: object
         ) -> float:
+        """
+        returns the number of adverbs
+        """
         try: 
             return SE.total_number_of_adverbs_
         except AttributeError:
@@ -52,6 +72,9 @@ class PartOfSpeech:
     def total_number_of_unique_adverbs(
         SE: object
         ) -> float:
+        """
+        returns the number of unique adverbs
+        """
         try: 
             return SE.total_number_of_unique_adverbs_
         except AttributeError:
@@ -62,6 +85,9 @@ class PartOfSpeech:
     def total_number_of_auxiliaries(
         SE: object
         ) -> float:
+        """
+        returns the number of auxiliaries
+        """
         try: 
             return SE.total_number_of_auxiliaries_
         except AttributeError:
@@ -72,6 +98,9 @@ class PartOfSpeech:
     def total_number_of_unique_auxiliaries(
         SE: object
         ) -> float:
+        """
+        returns the number of unique auxiliaries
+        """
         try: 
             return SE.total_number_of_unique_auxiliaries_
         except AttributeError:
@@ -82,6 +111,9 @@ class PartOfSpeech:
     def total_number_of_coordinating_conjunctions(
         SE: object
         ) -> float:
+        """
+        returns the number of coordinating_conjunctions
+        """
         try: 
             return SE.total_number_of_coordinating_conjunctions_
         except AttributeError:
@@ -92,6 +124,9 @@ class PartOfSpeech:
     def total_number_of_unique_coordinating_conjunctions(
         SE: object
         ) -> float:
+        """
+        returns the number of unique coordinating_conjunctions
+        """
         try: 
             return SE.total_number_of_unique_coordinating_conjunctions_
         except AttributeError:
@@ -102,6 +137,9 @@ class PartOfSpeech:
     def total_number_of_determiners(
         SE: object
         ) -> float:
+        """
+        returns the number of determiners
+        """
         try: 
             return SE.total_number_of_determiners_
         except AttributeError:
@@ -112,6 +150,9 @@ class PartOfSpeech:
     def total_number_of_unique_determiners(
         SE: object
         ) -> float:
+        """
+        returns the number of unique determiners
+        """
         try: 
             return SE.total_number_of_unique_determiners_
         except AttributeError:
@@ -122,6 +163,9 @@ class PartOfSpeech:
     def total_number_of_interjections(
         SE: object
         ) -> float:
+        """
+        returns the number of interjections
+        """
         try: 
             return SE.total_number_of_interjections_
         except AttributeError:
@@ -132,6 +176,9 @@ class PartOfSpeech:
     def total_number_of_unique_interjections(
         SE: object
         ) -> float:
+        """
+        returns the number of unique interjections
+        """
         try: 
             return SE.total_number_of_unique_interjections_
         except AttributeError:
@@ -142,6 +189,9 @@ class PartOfSpeech:
     def total_number_of_nouns(
         SE: object
         ) -> float:
+        """
+        returns the number of nouns
+        """
         try: 
             return SE.total_number_of_nouns_
         except AttributeError:
@@ -152,6 +202,9 @@ class PartOfSpeech:
     def total_number_of_unique_nouns(
         SE: object
         ) -> float:
+        """
+        returns the number of unique nouns
+        """
         try: 
             return SE.total_number_of_unique_nouns_
         except AttributeError:
@@ -162,6 +215,9 @@ class PartOfSpeech:
     def total_number_of_numerals(
         SE: object
         ) -> float:
+        """
+        returns the number of numerals
+        """
         try: 
             return SE.total_number_of_numerals_
         except AttributeError:
@@ -172,6 +228,9 @@ class PartOfSpeech:
     def total_number_of_unique_numerals(
         SE: object
         ) -> float:
+        """
+        returns the number of unique numerals
+        """
         try: 
             return SE.total_number_of_unique_numerals_
         except AttributeError:
@@ -182,6 +241,9 @@ class PartOfSpeech:
     def total_number_of_particles(
         SE: object
         ) -> float:
+        """
+        returns the number of particles
+        """
         try: 
             return SE.total_number_of_particles_
         except AttributeError:
@@ -192,6 +254,9 @@ class PartOfSpeech:
     def total_number_of_unique_particles(
         SE: object
         ) -> float:
+        """
+        returns the number of unique particles
+        """
         try: 
             return SE.total_number_of_unique_particles_
         except AttributeError:
@@ -202,6 +267,9 @@ class PartOfSpeech:
     def total_number_of_pronouns(
         SE: object
         ) -> float:
+        """
+        returns the number of pronouns
+        """
         try: 
             return SE.total_number_of_pronouns_
         except AttributeError:
@@ -212,6 +280,9 @@ class PartOfSpeech:
     def total_number_of_unique_pronouns(
         SE: object
         ) -> float:
+        """
+        returns the number of unique pronouns
+        """
         try: 
             return SE.total_number_of_unique_pronouns_
         except AttributeError:
@@ -222,6 +293,9 @@ class PartOfSpeech:
     def total_number_of_proper_nouns(
         SE: object
         ) -> float:
+        """
+        returns the number of proper nouns
+        """
         try: 
             return SE.total_number_of_proper_nouns_
         except AttributeError:
@@ -232,6 +306,9 @@ class PartOfSpeech:
     def total_number_of_unique_proper_nouns(
         SE: object
         ) -> float:
+        """
+        returns the number of unique proper nouns
+        """
         try: 
             return SE.total_number_of_unique_proper_nouns_
         except AttributeError:
@@ -242,6 +319,9 @@ class PartOfSpeech:
     def total_number_of_punctuations(
         SE: object
         ) -> float:
+        """
+        returns the number of punctuations
+        """
         try: 
             return SE.total_number_of_punctuations_
         except AttributeError:
@@ -252,6 +332,9 @@ class PartOfSpeech:
     def total_number_of_unique_punctuations(
         SE: object
         ) -> float:
+        """
+        returns the number of unique punctuations
+        """
         try: 
             return SE.total_number_of_unique_punctuations_
         except AttributeError:
@@ -262,6 +345,9 @@ class PartOfSpeech:
     def total_number_of_subordinating_conjunctions(
         SE: object
         ) -> float:
+        """
+        returns the number of subordinating conjunctions
+        """
         try: 
             return SE.total_number_of_subordinating_conjunctions_
         except AttributeError:
@@ -272,6 +358,9 @@ class PartOfSpeech:
     def total_number_of_unique_subordinating_conjunctions(
         SE: object
         ) -> float:
+        """
+        returns the number of unique subordinating conjunctions
+        """
         try: 
             return SE.total_number_of_unique_subordinating_conjunctions_
         except AttributeError:
@@ -282,6 +371,9 @@ class PartOfSpeech:
     def total_number_of_symbols(
         SE: object
         ) -> float:
+        """
+        returns the number of symbols
+        """
         try: 
             return SE.total_number_of_symbols_
         except AttributeError:
@@ -292,6 +384,9 @@ class PartOfSpeech:
     def total_number_of_unique_symbols(
         SE: object
         ) -> float:
+        """
+        returns the number of unique symbols
+        """
         try: 
             return SE.total_number_of_unique_symbols_
         except AttributeError:
@@ -302,6 +397,9 @@ class PartOfSpeech:
     def total_number_of_verbs(
         SE: object
         ) -> float:
+        """
+        returns the number of verbs
+        """
         try: 
             return SE.total_number_of_verbs_
         except AttributeError:
@@ -312,6 +410,9 @@ class PartOfSpeech:
     def total_number_of_unique_verbs(
         SE: object
         ) -> float:
+        """
+        returns the number of unique verbs
+        """
         try: 
             return SE.total_number_of_unique_verbs_
         except AttributeError:
@@ -322,6 +423,9 @@ class PartOfSpeech:
     def total_number_of_spaces(
         SE: object
         ) -> float:
+        """
+        returns the number of spaces
+        """
         try: 
             return SE.total_number_of_spaces_
         except AttributeError:
@@ -332,6 +436,9 @@ class PartOfSpeech:
     def total_number_of_unique_spaces(
         SE: object
         ) -> float:
+        """
+        returns the number of unique spaces
+        """
         try: 
             return SE.total_number_of_unique_spaces_
         except AttributeError:
