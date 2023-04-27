@@ -10,9 +10,6 @@ import os
 import sys
 sys.path.insert(0, os.path.abspath(os.path.join('..', '..')))
 
-import lftk
-
-master_doc = 'index'
 project = 'LFTK'
 copyright = '2023, Bruce W Lee'
 author = 'Bruce W Lee'
