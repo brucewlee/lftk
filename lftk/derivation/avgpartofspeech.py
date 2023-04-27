@@ -2,9 +2,17 @@ from lftk.derivation.foundation_collector import FoundationCollector
 from lftk.utils import safe_division
 
 class AvgPartOfSpeech(FoundationCollector):
+    """AvgPartOfSpeech
+
+    Parent class for features that are in the 'avgpartofspeech' family.
+    """
+
     def average_number_of_adjectives_per_word(
         SE: object,
         ) -> float:
+        """
+        returns the value of (total number of adjectives / total number of words)
+        """
         try:
             return SE.average_number_of_adjectives_per_word_
         except AttributeError:
@@ -22,6 +30,9 @@ class AvgPartOfSpeech(FoundationCollector):
     def average_number_of_adjectives_per_sentence(
         SE: object,
         ) -> float:
+        """
+        returns the value of (total number of adjectives / total number of sentence)
+        """
         try:
             return SE.average_number_of_adjectives_per_sentence_
         except AttributeError:
@@ -39,6 +50,9 @@ class AvgPartOfSpeech(FoundationCollector):
     def average_number_of_adpositions_per_word(
         SE: object,
         ) -> float:
+        """
+        returns the value of (total number of adpositions / total number of word)
+        """
         try:
             return SE.average_number_of_adpositions_per_word_
         except AttributeError:
@@ -56,6 +70,9 @@ class AvgPartOfSpeech(FoundationCollector):
     def average_number_of_adpositions_per_sentence(
         SE: object,
         ) -> float:
+        """
+        returns the value of (total number of adpositions / total number of sentence)
+        """
         try:
             return SE.average_number_of_adpositions_per_sentence_
         except AttributeError:
@@ -73,6 +90,9 @@ class AvgPartOfSpeech(FoundationCollector):
     def average_number_of_adverbs_per_word(
         SE: object,
         ) -> float:
+        """
+        returns the value of (total number of adverbs / total number of word)
+        """
         try:
             return SE.average_number_of_adverbs_per_word_
         except AttributeError:
@@ -90,6 +110,9 @@ class AvgPartOfSpeech(FoundationCollector):
     def average_number_of_adverbs_per_sentence(
         SE: object,
         ) -> float:
+        """
+        returns the value of (total number of adverbs / total number of sentence)
+        """
         try:
             return SE.average_number_of_adverbs_per_sentence_
         except AttributeError:
@@ -107,6 +130,9 @@ class AvgPartOfSpeech(FoundationCollector):
     def average_number_of_auxiliaries_per_word(
         SE: object,
         ) -> float:
+        """
+        returns the value of (total number of auxiliaries / total number of word)
+        """
         try:
             return SE.average_number_of_auxiliaries_per_word_
         except AttributeError:
@@ -124,6 +150,9 @@ class AvgPartOfSpeech(FoundationCollector):
     def average_number_of_auxiliaries_per_sentence(
         SE: object,
         ) -> float:
+        """
+        returns the value of (total number of auxiliaries / total number of sentence)
+        """
         try:
             return SE.average_number_of_auxiliaries_per_sentence_
         except AttributeError:
@@ -141,6 +170,9 @@ class AvgPartOfSpeech(FoundationCollector):
     def average_number_of_coordinating_conjunctions_per_word(
         SE: object,
         ) -> float:
+        """
+        returns the value of (total number of coordinating conjunctions / total number of word)
+        """
         try:
             return SE.average_number_of_coordinating_conjunctions_per_word_
         except AttributeError:
@@ -158,6 +190,9 @@ class AvgPartOfSpeech(FoundationCollector):
     def average_number_of_coordinating_conjunctions_per_sentence(
         SE: object,
         ) -> float:
+        """
+        returns the value of (total number of coordinating conjunctions / total number of sentence)
+        """
         try:
             return SE.average_number_of_coordinating_conjunctions_per_sentence_
         except AttributeError:
@@ -175,6 +210,9 @@ class AvgPartOfSpeech(FoundationCollector):
     def average_number_of_determiners_per_word(
         SE: object,
         ) -> float:
+        """
+        returns the value of (total number of determiners / total number of word)
+        """
         try:
             return SE.average_number_of_determiners_per_word_
         except AttributeError:
@@ -192,6 +230,9 @@ class AvgPartOfSpeech(FoundationCollector):
     def average_number_of_determiners_per_sentence(
         SE: object,
         ) -> float:
+        """
+        returns the value of (total number of determiners / total number of sentence)
+        """
         try:
             return SE.average_number_of_determiners_per_sentence_
         except AttributeError:
@@ -209,6 +250,9 @@ class AvgPartOfSpeech(FoundationCollector):
     def average_number_of_interjections_per_word(
         SE: object,
         ) -> float:
+        """
+        returns the value of (total number of interjections / total number of word)
+        """
         try:
             return SE.average_number_of_interjections_per_word_
         except AttributeError:
@@ -226,6 +270,9 @@ class AvgPartOfSpeech(FoundationCollector):
     def average_number_of_interjections_per_sentence(
         SE: object,
         ) -> float:
+        """
+        returns the value of (total number of interjections / total number of sentence)
+        """
         try:
             return SE.average_number_of_interjections_per_sentence_
         except AttributeError:
@@ -243,6 +290,9 @@ class AvgPartOfSpeech(FoundationCollector):
     def average_number_of_nouns_per_word(
         SE: object,
         ) -> float:
+        """
+        returns the value of (total number of nouns / total number of word)
+        """
         try:
             return SE.average_number_of_nouns_per_word_
         except AttributeError:
@@ -260,6 +310,9 @@ class AvgPartOfSpeech(FoundationCollector):
     def average_number_of_nouns_per_sentence(
         SE: object,
         ) -> float:
+        """
+        returns the value of (total number of nouns / total number of sentence)
+        """
         try:
             return SE.average_number_of_nouns_per_sentence_
         except AttributeError:
@@ -277,6 +330,9 @@ class AvgPartOfSpeech(FoundationCollector):
     def average_number_of_numerals_per_word(
         SE: object,
         ) -> float:
+        """
+        returns the value of (total number of numerals / total number of word)
+        """
         try:
             return SE.average_number_of_numerals_per_word_
         except AttributeError:
@@ -294,6 +350,9 @@ class AvgPartOfSpeech(FoundationCollector):
     def average_number_of_numerals_per_sentence(
         SE: object,
         ) -> float:
+        """
+        returns the value of (total number of numerals / total number of sentence)
+        """
         try:
             return SE.average_number_of_numerals_per_sentence_
         except AttributeError:
@@ -311,6 +370,9 @@ class AvgPartOfSpeech(FoundationCollector):
     def average_number_of_particles_per_word(
         SE: object,
         ) -> float:
+        """
+        returns the value of (total number of particles / total number of word)
+        """
         try:
             return SE.average_number_of_particles_per_word_
         except AttributeError:
@@ -328,6 +390,9 @@ class AvgPartOfSpeech(FoundationCollector):
     def average_number_of_particles_per_sentence(
         SE: object,
         ) -> float:
+        """
+        returns the value of (total number of particles / total number of sentence)
+        """
         try:
             return SE.average_number_of_particles_per_sentence_
         except AttributeError:
@@ -345,6 +410,9 @@ class AvgPartOfSpeech(FoundationCollector):
     def average_number_of_pronouns_per_word(
         SE: object,
         ) -> float:
+        """
+        returns the value of (total number of pronouns / total number of word)
+        """
         try:
             return SE.average_number_of_pronouns_per_word_
         except AttributeError:
@@ -362,6 +430,9 @@ class AvgPartOfSpeech(FoundationCollector):
     def average_number_of_pronouns_per_sentence(
         SE: object,
         ) -> float:
+        """
+        returns the value of (total number of pronouns / total number of sentence)
+        """
         try:
             return SE.average_number_of_pronouns_per_sentence_
         except AttributeError:
@@ -379,6 +450,9 @@ class AvgPartOfSpeech(FoundationCollector):
     def average_number_of_proper_nouns_per_word(
         SE: object,
         ) -> float:
+        """
+        returns the value of (total number of proper nouns / total number of word)
+        """
         try:
             return SE.average_number_of_proper_nouns_per_word_
         except AttributeError:
@@ -396,6 +470,9 @@ class AvgPartOfSpeech(FoundationCollector):
     def average_number_of_proper_nouns_per_sentence(
         SE: object,
         ) -> float:
+        """
+        returns the value of (total number of proper nouns / total number of sentence)
+        """
         try:
             return SE.average_number_of_proper_nouns_per_sentence_
         except AttributeError:
@@ -413,6 +490,9 @@ class AvgPartOfSpeech(FoundationCollector):
     def average_number_of_punctuations_per_word(
         SE: object,
         ) -> float:
+        """
+        returns the value of (total number of punctuations / total number of word)
+        """
         try:
             return SE.average_number_of_punctuations_per_word_
         except AttributeError:
@@ -430,6 +510,9 @@ class AvgPartOfSpeech(FoundationCollector):
     def average_number_of_punctuations_per_sentence(
         SE: object,
         ) -> float:
+        """
+        returns the value of (total number of punctuations / total number of sentence)
+        """
         try:
             return SE.average_number_of_punctuations_per_sentence_
         except AttributeError:
@@ -447,6 +530,9 @@ class AvgPartOfSpeech(FoundationCollector):
     def average_number_of_subordinating_conjunctions_per_word(
         SE: object,
         ) -> float:
+        """
+        returns the value of (total number of subordinating conjunctions / total number of word)
+        """
         try:
             return SE.average_number_of_subordinating_conjunctions_per_word_
         except AttributeError:
@@ -464,6 +550,9 @@ class AvgPartOfSpeech(FoundationCollector):
     def average_number_of_subordinating_conjunctions_per_sentence(
         SE: object,
         ) -> float:
+        """
+        returns the value of (total number of subordinating conjunctions / total number of sentence)
+        """
         try:
             return SE.average_number_of_subordinating_conjunctions_per_sentence_
         except AttributeError:
@@ -481,6 +570,9 @@ class AvgPartOfSpeech(FoundationCollector):
     def average_number_of_symbols_per_word(
         SE: object,
         ) -> float:
+        """
+        returns the value of (total number of symbols / total number of word)
+        """
         try:
             return SE.average_number_of_symbols_per_word_
         except AttributeError:
@@ -498,6 +590,9 @@ class AvgPartOfSpeech(FoundationCollector):
     def average_number_of_symbols_per_sentence(
         SE: object,
         ) -> float:
+        """
+        returns the value of (total number of symbols / total number of sentence)
+        """
         try:
             return SE.average_number_of_symbols_per_sentence_
         except AttributeError:
@@ -515,6 +610,9 @@ class AvgPartOfSpeech(FoundationCollector):
     def average_number_of_verbs_per_word(
         SE: object,
         ) -> float:
+        """
+        returns the value of (total number of verbs / total number of word)
+        """
         try:
             return SE.average_number_of_verbs_per_word_
         except AttributeError:
@@ -532,6 +630,9 @@ class AvgPartOfSpeech(FoundationCollector):
     def average_number_of_verbs_per_sentence(
         SE: object,
         ) -> float:
+        """
+        returns the value of (total number of verbs / total number of sentence)
+        """
         try:
             return SE.average_number_of_verbs_per_sentence_
         except AttributeError:
@@ -549,6 +650,9 @@ class AvgPartOfSpeech(FoundationCollector):
     def average_number_of_spaces_per_word(
         SE: object,
         ) -> float:
+        """
+        returns the value of (total number of spaces / total number of word)
+        """
         try:
             return SE.average_number_of_spaces_per_word_
         except AttributeError:
@@ -566,6 +670,9 @@ class AvgPartOfSpeech(FoundationCollector):
     def average_number_of_spaces_per_sentence(
         SE: object,
         ) -> float:
+        """
+        returns the value of (total number of spaces / total number of sentence)
+        """
         try:
             return SE.average_number_of_spaces_per_sentence_
         except AttributeError:

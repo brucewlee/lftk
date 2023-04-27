@@ -1,7 +1,15 @@
 class WordSent:
+    """WordSent
+
+    Parent class for features that are in the 'wordsent' family.
+    """
+
     def total_number_of_words(
         SE: object,
         ) -> int:
+        """
+        returns the number of words
+        """
         try:
             return SE.total_number_of_words_ 
         except AttributeError:   
@@ -17,6 +25,9 @@ class WordSent:
     def total_number_of_stop_words(
         SE: object,
         ) -> int:
+        """
+        returns the number of stop words
+        """
         try:
             return SE.total_number_of_stop_words_ 
         except AttributeError:   
@@ -25,20 +36,26 @@ class WordSent:
             SE.total_number_of_stop_words_  = len(token_list)
             return SE.total_number_of_stop_words_ 
     
-    def total_number_of_puntuations(
+    def total_number_of_punctuations(
         SE: object,
         ) -> int:
+        """
+        returns the number of punctuations
+        """
         try:
-            return SE.total_number_of_puntuations_ 
+            return SE.total_number_of_punctuations_ 
         except AttributeError:   
             token_list = [token for token in SE.doc if token.is_punct == True]
             # Calculate and save result
-            SE.total_number_of_puntuations_  = len(token_list)
-            return SE.total_number_of_puntuations_ 
+            SE.total_number_of_punctuations_  = len(token_list)
+            return SE.total_number_of_punctuations_ 
     
     def total_number_of_syllables(
         SE: object,
         ) -> int:
+        """
+        returns the number of syllables
+        """
         try:
             return SE.total_number_of_syllables_
         except AttributeError:
@@ -69,6 +86,9 @@ class WordSent:
     def total_number_of_words_more_than_two_syllables(
         SE: object,
         ) -> int:
+        """
+        returns the number of words more than two syllables
+        """
         try:
             return SE.total_number_of_words_more_than_two_syllables_
         except AttributeError:
@@ -102,6 +122,9 @@ class WordSent:
     def total_number_of_words_more_than_three_syllables(
         SE: object,
         ) -> int:
+        """
+        returns the number of words more than three syllables
+        """
         try:
             return SE.total_number_of_words_more_than_three_syllables_
         except AttributeError:
@@ -135,6 +158,9 @@ class WordSent:
     def total_number_of_unique_words(
         SE: object,
         ) -> int:
+        """
+        returns the number of unique lemmatized words
+        """
         try:
             return SE.total_number_of_unique_words_ 
         except AttributeError:   
@@ -153,6 +179,9 @@ class WordSent:
     def total_number_of_unique_words_no_lemma(
         SE: object,
         ) -> int:
+        """
+        returns the number of unique words
+        """
         try:
             return SE.total_number_of_unique_words_no_lemma_ 
         except AttributeError:   
@@ -171,6 +200,9 @@ class WordSent:
     def total_number_of_sentences(
         SE: object,
         ) -> int:
+        """
+        returns the total number of sentences
+        """
         try:
             return SE.total_number_of_sentences_
         except AttributeError:
@@ -182,6 +214,9 @@ class WordSent:
     def total_number_of_characters(
         SE: object,
         ) -> int:
+        """
+        returns the total number of characters
+        """
         try:
             return SE.total_number_of_characters_
         except AttributeError:

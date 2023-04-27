@@ -1,8 +1,15 @@
 class Entity:
+    """Entity
+
+    Parent class for features that are in the 'entity' family.
+    """
 
     def total_number_of_named_entities(
         SE: object
         ) -> int:
+        """
+        returns the number of named entities
+        """
         try:
             return SE.total_number_of_named_entities_ 
         except AttributeError:

@@ -1,29 +1,24 @@
-[![spaCy](https://img.shields.io/badge/made%20with%20❤%20and-spaCy-09a3d5.svg)](https://spacy.io)
-<img alt="PyPI Version" src="https://img.shields.io/pypi/v/lftk?style=plastic"></a>
-<img alt="PyPI Downloads" src="https://img.shields.io/pypi/dm/lftk?color=white&label=PyPI%20Downloads&style=plastic"></a>
-<img alt="Read the Docs" src="https://img.shields.io/readthedocs/lftk"></a>
-<img alt="Language" src="https://img.shields.io/github/languages/top/brucewlee/lftk?style=plastic"></a>
-<img alt="Available Features" src="https://img.shields.io/badge/Linguistic%20Feature%20Count-220-yellowgreen"></a>
-<img src="assets/logo-color.png" width="250" align="right">
+# Basic Walkthrough <-<-<- new users & returning users start here
 
-# LFTK
+Greetings, my fellow NLP enthusiasts. Welcome to LFTK, aka Linguistic Features ToolKit, an open-source feature extraction library. I have been building this library since 2022 to provide the community with the most comprehensive and up-to-date hancrafted linguistic feature extraction capabilities. Using [spaCy](https://spacy.io) as a sidekick, LFTK helps you extract a variety of features (more than 200 implemented features; Apr-26-2023). 
 
-- **:microscope: Comprehensive**: LFTK is a Python research package that extracts various handcrafted features (e.g. number of words per sentence, Flesch-Kincaid Readabiility Score) that are commonly used in computational linguistics. 
-- **:fire: Blazing Fast**: Extracting more than 200 handcrafted features takes less than 0.01 sec per word. Much faster than LFTK's predecessor, [LingFeat](https://github.com/brucewlee/lingfeat). This time is reported excluding spaCy processing time, which is not contained in LFTK.
-- **:rocket: Do More with SpaCy**: LFTK is built on top of a popular NLP library named [spaCy](https://spacy.io). Explore spaCy's pre-trained pipelines and get the most out of spaCy.
+## Handcrafted Linguistic Features?
 
-LFTK can calculate readability score, evaluate word difficulty, count number of nouns, and many more. There is much to explore in this package. Use our handcrafted features to support linguistic studies or build machine learning models.
+So, why would you need these "handcrafted linguistic features"? Trust me, you have already used them at some point in your NLP journey. In a 2023 paper that I introduced LFTK, I wrote, *"a handcrafted linguistic feature is a **single numerical value** produced by a **uniquely identifiable method** on **any natural language**"*. Indeed, that is the best definition that I can think of.
 
-<img src="assets/express_alt.png" width="300" align="right">
+|Handcrafted vs Auto-generated|What defines a feature?|
+|:-:|:-:|
+|![Handcrafted vs Auto-generated](_static/express.png)|![What defines a feature?](_static/handcrafted.png)|
 
-## Installation
-Use package manager [pip](https://pip.pypa.io/en/stable/) to install LFTK. 
+So really, a handcrafted linguistic feature is any single numeric that captures some intended linguistic properties. One example would be the *average number of numerals per sentence (feature key: a_num_ps)*.
+
+## Usage
+
+As above-mentioned, spaCy is LFTK's sidekick. So along with LFTK, you will need to install spaCy and one of it's pre-trained pipelines. To install libraries, use pip if possible.
 
 ```bash
 pip install lftk
 ```
-
-Also, install spaCy and a [trained spaCy pipeline of your choice](https://spacy.io/usage). Here, we use ```en_core_web_sm```. Though instaling LFTK can automatically install spaCy, but you will still have to download one of their trained pipelines.
 
 ```bash
 pip install spacy
@@ -31,11 +26,7 @@ pip install spacy
 python -m spacy download en_core_web_sm
 ```
 
-## News
-- v.1.0.9 -> Documentation update! Keep track of our progress.
-- v.1.0.8 -> 7 features that extracts conjunctions are deleted. These features are replaced by those extractin subordinating conjunctions and coordinating conjunections.
-
-## Usage
+Lets start by importing libraries and spaCy pipeline.
 
 ```python
 import spacy
@@ -44,40 +35,33 @@ import lftk
 # load a trained pipeline of your choice from spacy
 # remember we already downloaed "en_core_web_sm" pipeline above?
 nlp = spacy.load("en_core_web_sm")
+```
 
+Then, pass in your string to spaCy doc object.
+
+```python
 # create a spaCy doc object
 doc = nlp("I love research but my professor is strange.")
+```
 
+Declare LFTK Extractor object.
+
+```python
 # initiate LFTK extractor by passing in doc
 # you can pass in a list of multiple docs
 LFTK = lftk.Extractor(docs = doc)
-
-# optionally, you can customize how LFTK extractor calculates handcrafted linguistic features
-# for example, include stop word? include puncutaion? maximum decimal digits?
-LFTK.customize(stop_words=True, punctuations=False, round_decimal=3)
-
-# now, extract the handcrafted linguistic features that you need
-# refer to them as feature keys
-extracted_features = LFTK.extract(features = ["a_word_ps", "a_kup_pw", "n_noun"])
-
-# {'a_word_ps': 8.0, 'a_kup_pw': 5.754, 'n_noun': 2}
-print(extracted_features)
 ```
-Also, read [Essential Tips and To-Do Guides](#essential-tips-and-to-do-guides).
 
-## Deep Dive: Handcrafted Linguistic Features
+Now, extract whichever feature you want.
 
-TL;DR: [Google Sheet of All Handcrafted Lingusitic Features](https://docs.google.com/spreadsheets/d/1uXtQ1ah0OL9cmHp2Hey0QcHb4bifJcQFLvYlVIAWWwQ/edit?usp=sharing)
+```python
+# now, extract the handcrafted linguistic features that you need
+# refer to them with feature keys
+extracted_features = LFTK.extract(features = ["a_word_ps", "a_kup_pw", "n_noun"])
+# {'a_word_ps': 8.0, 'a_kup_pw': 5.754, 'n_noun': 2}
+```
 
-Each handcrafted linguistic feature represents a certain linguistic property. We categorize all features into the broad linguistic branches of **lexico-semantics**, **syntax**, **discourse**, and **surface**. The **surface** branch can also hold features that do not belong to any specific linguistic branch. Apart from linguistic branches, handcrafted features are also categorized into linguistic families. The linguistic families are meant to group features into smaller subcategories, enabling users to search more effectively for the feature they need. All family names are unique, and each family belongs to a specific formulation. This means that the features in a family are either all foundation or all derivation. A linguistic family also serves as an important building block of our feature extraction system. LFTK as a program is essentially a linked collection of several feature extraction modules where each module represents a linguistic family.
-
-<img src="assets/categorization_.png" width="800" align="center">
-
-Each handcrafted linguistic feature can either foundation or derivation. Derivation-type linguistic features are derived on top of foundation-type linguistic features. For example, the *total number of words* and the *total number of sentences* in a given text is a foundation feature. On the other hand, the *average number of words per sentence* is a derivation feature as it builds on top of the two aforementioned foundation features.
-
-Each handcrafted linguistic feature also has an assigned language value. If the linguistic feature is universally applicable across languages, it is denoted "general". These general linguistic features can be used with any language given that spaCy has a supporting pipeline for that functionality in that language. This can be easily checked on [spaCy pipelines](https://universaldependencies.org/u/pos/). If the feature is designed for a specific language, like English, it is denoted with the specific language code.
-
-### Programmatically Searching Handcrafted Features
+## Programmatically Searching Handcrafted Features
 
 ```python
 import lftk
@@ -128,7 +112,7 @@ print(searched_features)
 - **general** : LFTK can extract this feature in a language-agnostic manner when supplied with an appropriate spaCy pipeline
 - **en** : LFTK can extract this feature in English only
 
-## Essential Tips and To-Do Guides
+## FAQ
 ### Q: How to extract features by group? Do I have to specify each feature individually?
 No. We have a good way around, using the convenient search function. First, think about how you want to search for your handcrafted linguistic features. In this case, we only want **wordsent** family features that generally work across languages. 
 
@@ -167,4 +151,3 @@ Then, you can call the usual extraction function,
 
 ```Python
 extracted_features = LFTK.extract(features = result)
-```

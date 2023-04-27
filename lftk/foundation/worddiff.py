@@ -3,9 +3,17 @@ import pandas as pd
 from lftk.utils import get_pandas_row, safe_division
 
 class WordDiff:
+    """WordDiff
+
+    Parent class for features that are in the 'worddiff' family.
+    """
+
     def total_kuperman_age_of_acquistion_of_words(
         SE: object
         ) -> float:
+        """
+        returns the total value of total Kuperman score (adds up all words' Kuperman difficulty score)
+        """
         try:
             return SE.total_kuperman_age_of_acquistion_of_words_ 
         except AttributeError:
@@ -26,6 +34,9 @@ class WordDiff:
     def total_brysbaert_age_of_acquistion_of_words(
         SE: object
         ) -> float:
+        """
+        returns the total value of total Brysbaert score (adds up all words' Brysbaert difficulty score)
+        """
         try:
             return SE.total_brysbaert_age_of_acquistion_of_words_ 
         except AttributeError:
@@ -49,6 +60,9 @@ class WordDiff:
     def total_subtlex_us_zipf_of_words(
         SE: object
         ) -> float:
+        """
+        returns the total value of total SubtlexUS frequency score (adds up all words' zipf score from SubtlexUS)
+        """
         try:
             return SE.total_subtlex_us_zipf_of_words_ 
         except AttributeError:

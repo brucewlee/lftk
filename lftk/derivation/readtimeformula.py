@@ -2,9 +2,17 @@ from lftk.derivation.foundation_collector import FoundationCollector
 from lftk.utils import safe_division
 
 class ReadTimeFormula(FoundationCollector):
+    """ReadTimeFormula
+
+    Parent class for features that are in the 'readtimeformula' family.
+    """
+
     def reading_time_for_fast_readers(
         SE: object,
         ) -> float:
+        """
+        returns value of (total number of words / 300)
+        """
         try:
             return SE.reading_time_for_fast_readers_
         except AttributeError:
@@ -27,6 +35,9 @@ class ReadTimeFormula(FoundationCollector):
     def reading_time_for_average_readers(
         SE: object,
         ) -> float:
+        """
+        returns value of (total number of words / 300)
+        """
         try:
             return SE.reading_time_for_average_readers_
         except AttributeError:
@@ -49,6 +60,9 @@ class ReadTimeFormula(FoundationCollector):
     def reading_time_for_slow_readers(
         SE: object,
         ) -> float:
+        """
+        returns value of (total number of words / 300)
+        """
         try:
             return SE.reading_time_for_slow_readers_
         except AttributeError:
