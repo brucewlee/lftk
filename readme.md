@@ -1,6 +1,8 @@
 [![spaCy](https://img.shields.io/badge/made%20with%20❤%20and-spaCy-09a3d5.svg)](https://spacy.io)
 <img alt="PyPI Version" src="https://img.shields.io/pypi/v/lftk?style=plastic"></a>
-<img alt="PyPI Downloads" src="https://img.shields.io/pypi/dm/lftk?color=white&label=PyPI%20Downloads&style=plastic"></a>
+[![Downloads](https://static.pepy.tech/badge/lftk)](https://pepy.tech/project/lftk)
+[![Downloads](https://static.pepy.tech/badge/lftk/month)](https://pepy.tech/project/lftk)
+[![Downloads](https://static.pepy.tech/badge/lftk/week)](https://pepy.tech/project/lftk)
 <img alt="Read the Docs" src="https://img.shields.io/readthedocs/lftk"></a>
 <img alt="Language" src="https://img.shields.io/github/languages/top/brucewlee/lftk?style=plastic"></a>
 <img alt="Available Features" src="https://img.shields.io/badge/Linguistic%20Feature%20Count-220-yellowgreen"></a>
