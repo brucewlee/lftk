@@ -8,7 +8,7 @@
 <img alt="Available Features" src="https://img.shields.io/badge/Linguistic%20Feature%20Count-220-yellowgreen"></a>
 <img src="assets/logo-color.png" width="250" align="right">
 
-# LFTK
+# LFTK: Handcrafted Features in Computational Linguistics
 
 - **:microscope: Comprehensive**: LFTK is a Python research package that extracts various handcrafted features (e.g. number of words per sentence, Flesch-Kincaid Readabiility Score) that are commonly used in computational linguistics. 
 - **:fire: Blazing Fast**: Extracting more than 200 handcrafted features takes less than 0.01 sec per word. Much faster than LFTK's predecessor, [LingFeat](https://github.com/brucewlee/lingfeat). This time is reported excluding spaCy processing time, which is not contained in LFTK.
