@@ -34,6 +34,7 @@ python -m spacy download en_core_web_sm
 ```
 
 ## News
+- Preprint available on ArXiv! [Here](https://arxiv.org/abs/2305.15878)
 - v.1.0.9 -> Documentation update! Keep track of our progress.
 - v.1.0.8 -> 7 features that extracts conjunctions are deleted. These features are replaced by those extractin subordinating conjunctions and coordinating conjunections.
 
