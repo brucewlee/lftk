@@ -13,6 +13,7 @@
 - **:microscope: Comprehensive**: LFTK is a Python research package that extracts various handcrafted features (e.g. number of words per sentence, Flesch-Kincaid Readabiility Score) that are commonly used in computational linguistics. 
 - **:fire: Blazing Fast**: Extracting more than 200 handcrafted features takes less than 0.01 sec per word. Much faster than LFTK's predecessor, [LingFeat](https://github.com/brucewlee/lingfeat). This time is reported excluding spaCy processing time, which is not contained in LFTK.
 - **:rocket: Do More with SpaCy**: LFTK is built on top of a popular NLP library named [spaCy](https://spacy.io). Explore spaCy's pre-trained pipelines and get the most out of spaCy.
+- **:people_holding_hands: Join our Discord channel** for regular updates! [Channel](https://discord.gg/ZteJsmusHV)
 
 LFTK can calculate readability score, evaluate word difficulty, count number of nouns, and many more. There is much to explore in this package. Use our handcrafted features to support linguistic studies or build machine learning models.
 
