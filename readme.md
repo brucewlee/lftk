@@ -34,7 +34,18 @@ pip install spacy
 python -m spacy download en_core_web_sm
 ```
 
+## Citation
+```tex
+@article{lee2023lftk,
+  title={LFTK: Handcrafted Features in Computational Linguistics},
+  author={Lee, Bruce W and Lee, Jason Hyung-Jong},
+  journal={arXiv preprint arXiv:2305.15878},
+  year={2023}
+}
+```
+
 ## News
+- Come join our presentation at BEA @ ACL 2023.
 - Preprint available on ArXiv! [Here](https://arxiv.org/abs/2305.15878)
 - v.1.0.9 -> Documentation update! Keep track of our progress.
 - v.1.0.8 -> 7 features that extracts conjunctions are deleted. These features are replaced by those extractin subordinating conjunctions and coordinating conjunections.
