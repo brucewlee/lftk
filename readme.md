@@ -36,11 +36,18 @@ python -m spacy download en_core_web_sm
 
 ## Citation
 ```tex
-@article{lee2023lftk,
-  title={LFTK: Handcrafted Features in Computational Linguistics},
-  author={Lee, Bruce W and Lee, Jason Hyung-Jong},
-  journal={arXiv preprint arXiv:2305.15878},
-  year={2023}
+@inproceedings{lee-lee-2023-lftk,
+    title = "{LFTK}: Handcrafted Features in Computational Linguistics",
+    author = "Lee, Bruce W.  and
+      Lee, Jason",
+    booktitle = "Proceedings of the 18th Workshop on Innovative Use of NLP for Building Educational Applications (BEA 2023)",
+    month = jul,
+    year = "2023",
+    address = "Toronto, Canada",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2023.bea-1.1",
+    pages = "1--19",
+    abstract = "Past research has identified a rich set of handcrafted linguistic features that can potentially assist various tasks. However, their extensive number makes it difficult to effectively select and utilize existing handcrafted features. Coupled with the problem of inconsistent implementation across research works, there has been no categorization scheme or generally-accepted feature names. This creates unwanted confusion. Also, no actively-maintained open-source library extracts a wide variety of handcrafted features. The current handcrafted feature extraction practices have several inefficiencies, and a researcher often has to build such an extraction system from the ground up. We collect and categorize more than 220 popular handcrafted features grounded on past literature. Then, we conduct a correlation analysis study on several task-specific datasets and report the potential use cases of each feature. Lastly, we devise a multilingual handcrafted linguistic feature extraction system in a systematically expandable manner. We open-source our system to give the community a rich set of pre-implemented handcrafted features.",
 }
 ```
 
