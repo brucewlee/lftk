@@ -35,11 +35,10 @@ python -m spacy download en_core_web_sm
 ```
 
 ## Citation
-```tex
+```
 @inproceedings{lee-lee-2023-lftk,
     title = "{LFTK}: Handcrafted Features in Computational Linguistics",
-    author = "Lee, Bruce W.  and
-      Lee, Jason",
+    author = "Lee, Bruce W.  and Lee, Jason",
     booktitle = "Proceedings of the 18th Workshop on Innovative Use of NLP for Building Educational Applications (BEA 2023)",
     month = jul,
     year = "2023",
@@ -52,6 +51,13 @@ python -m spacy download en_core_web_sm
 ```
 
 ## News
+- We have the first round of use cases. Thank you for using LFTK!
+    - ICMI 2023 [Gaze-Driven Sentence Simplification for Language Learners:
+Enhancing Comprehension and Readability](https://dl.acm.org/doi/pdf/10.1145/3610661.3616177?casa_token=0aIJ12pNqEIAAAAA:0i5IxerGtwGtuH9VGQ1yWiHT1YPTfaUdApTGGhdGhwgnbSKIoeafxwcVDRcMyOoEPzAT4bKCuQeIhw) 
+    - Preprint [Benchmarking and Explaining Large Language Model-based Code
+Generation: A Causality-Centric Approach](https://arxiv.org/pdf/2310.06680.pdf)
+    - SLaTE 2023 [Effective Neural Modeling Leveraging Readability Features for
+Automated Essay Scoring](https://www.isca-speech.org/archive/pdfs/slate_2023/wu23_slate.pdf)
 - Come join our presentation at BEA @ ACL 2023.
 - Preprint available on ArXiv! [Here](https://arxiv.org/abs/2305.15878)
 - v.1.0.9 -> Documentation update! Keep track of our progress.
