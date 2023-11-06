@@ -57,6 +57,7 @@ Enhancing Comprehension and Readability](https://dl.acm.org/doi/pdf/10.1145/3610
 Generation: A Causality-Centric Approach](https://arxiv.org/pdf/2310.06680.pdf)
     - SLaTE 2023 [Effective Neural Modeling Leveraging Readability Features for
 Automated Essay Scoring](https://www.isca-speech.org/archive/pdfs/slate_2023/wu23_slate.pdf)
+    - Preprint [Large Language Models and Financial Market Sentiment](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4584928)
 - Come join our presentation at BEA @ ACL 2023.
 - Preprint available on ArXiv! [Here](https://arxiv.org/abs/2305.15878)
 - v.1.0.9 -> Documentation update! Keep track of our progress.
