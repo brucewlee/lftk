@@ -36,7 +36,7 @@ class ReadTimeFormula(FoundationCollector):
         SE: object,
         ) -> float:
         """
-        returns value of (total number of words / 300)
+        returns value of (total number of words / 240)
         """
         try:
             return SE.reading_time_for_average_readers_
@@ -61,7 +61,7 @@ class ReadTimeFormula(FoundationCollector):
         SE: object,
         ) -> float:
         """
-        returns value of (total number of words / 300)
+        returns value of (total number of words / 175)
         """
         try:
             return SE.reading_time_for_slow_readers_
